@@ -1,0 +1,15 @@
+@import '@/assets/sass/Colors.scss';
+@media screen and (min-width: 768px){
+    .container-menu::after{
+        content: '';
+        display: block;
+        background-color: $primary;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        width: 110%;
+        height: 100vh;
+        clip-path: polygon(37% 0, 100% 0%, 100% 100%, 50% 100%);
+    }
+}

@@ -1,5 +1,7 @@
 @import '@/assets/sass/Colors.scss';
 
+$label-color: #2bc3ae;
+
 /* BACKGROUND */
 .container-menu{
     width: 100%;
@@ -30,18 +32,18 @@ header{
     padding: 30px 20px;
     text-align: center;
     display: block;
-    color: #2bc3ae;
+    color: $label-color;
     font-size: 1.2em;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
 label i{
-    color: #2bc3ae;
+    color: $label-color;
     font-size: 2.3rem;
 }
 .container-menu #menu a:hover{ 
-    background-color: #2bc3ae;
+    background-color: $label-color;
     color: $secondary;
 }
 input#check{
@@ -146,18 +148,7 @@ input#check{
         background-color: transparent;
         color: #fff;
     }
-    .container-menu::after{
-        content: '';
-        display: block;
-        background-color: $primary;
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        right: 0;
-        width: 110%;
-        height: 100vh;
-        clip-path: polygon(37% 0, 100% 0%, 100% 100%, 50% 100%);
-    } 
+
     label{
         display: none;
     }
