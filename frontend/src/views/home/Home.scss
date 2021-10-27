@@ -1,0 +1,182 @@
+@import '@/assets/sass/Colors.scss';
+
+/* BACKGROUND */
+.container-menu{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* HEADER MENU */
+header{
+    position: relative;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    padding: 3vh 0;
+    justify-content: space-around;
+}
+#menu{
+    background-color: $secondary;
+    width: 75%;
+    height: 100vh;
+    z-index: 5;
+    position: fixed;
+    top: 0%;
+    left: -75%;
+    transition: .7s ease;
+}
+.container-menu #menu a{      
+    padding: 30px 20px;
+    text-align: center;
+    display: block;
+    color: #2bc3ae;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+label i{
+    color: #2bc3ae;
+    font-size: 2.3rem;
+}
+.container-menu #menu a:hover{ 
+    background-color: #2bc3ae;
+    color: $secondary;
+}
+input#check{
+    display: none;
+}
+#check:checked ~ #menu{
+    left: 0%;
+}
+/*  TEXTO  */
+#bem-vindo{
+    width: 350px;
+    display: inline-block;
+    position: absolute;
+    top: 48%;
+    left: -20%;
+    opacity: 0;
+    transition: 1s ease; 
+}
+#bem-vindo h1{        
+    font-family: 'Roboto', sans-serif;
+    color: $secondary;
+    padding: 0 0 28px 0;
+    font-size: 30px;
+}
+
+#bem-vindo h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    color: $secondary;
+    padding: 0 0 22px 0;
+    font-size: 40px;
+}
+#bem-vindo p{        
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: $secondary;
+    margin: 0 0 50px 0;
+}
+#bem-vindo #btn-saiba-mais{       
+    margin-top: 23px;
+    color: #fff;
+    background-color: $primary;
+    border: none;
+    padding: 25px 54px;
+    border-radius: 25px;
+    font-size: 30px;
+    outline: none;  
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;  
+    text-decoration: none;
+}
+#bem-vindo #btn-saiba-mais:hover{
+    background-color: #229985;
+    cursor: pointer;
+}
+/* IMG MUUH */
+.img-muuhpc{
+    position: absolute;
+    top: 13%;
+    right: 15%;
+}
+.img-muuhpc img{
+    width: 300px;
+}
+/* LOGO BOSS */
+#boss-logo img{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    width: 20%;
+}
+
+.container2{
+    width: 100%;
+    height: 500px;
+    background-color: red;
+}
+
+@media screen and (min-width: 768px){
+    header{
+        margin: 0 0 0 10%;
+        display: flex;
+        align-items: initial;
+        justify-content: space-around;
+    }
+    #menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        height: auto;
+        position: initial;
+    }
+    .container-menu #menu a{       
+        display: inline;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0 25px;
+    }
+    .container-menu #menu a:hover{
+        background-color: transparent;
+        color: #fff;
+    }
+    .container-menu::after{
+        content: '';
+        display: block;
+        background-color: $primary;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        width: 110%;
+        height: 100vh;
+        clip-path: polygon(37% 0, 100% 0%, 100% 100%, 50% 100%);
+    } 
+    label{
+        display: none;
+    }
+    /* TEXTOS */
+    #bem-vindo h1{
+        color: $primary;
+    } 
+    /* IMAGEM MUUH PC */
+    .img-muuhpc{
+        position: absolute;
+        top: 30%;
+        right: 20%;
+    }
+    .img-muuhpc img{
+        width: 500px;
+    }
+    /* LOGO BOSS */
+    #boss-logo img{
+        right: 5%;
+        width: 8%;
+    }
+}

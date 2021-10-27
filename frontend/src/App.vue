@@ -1,16 +1,14 @@
 <template>
-  	<div id="nav"></div>
+	<div id="nav">
+		<router-view/>
+	</div>
 </template>
 
-
-<script lang="ts">
-import { Options, Vue } from "vue-class-component";
-
-@Options({
-	name: "App"
-})
-export default class App extends Vue {}
-</script>
-
-<style>
+<style lang="scss">
+	* {
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+		scroll-behavior: smooth;
+	}
 </style>
