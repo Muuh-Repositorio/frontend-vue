@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@mixin card-component-config() {
+    height: 50px;
+    width: 100%;
+    margin: 16px 0;
+    position: relative;
+}
+
+@mixin card-input-config() {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    padding-left: 16px;
+    background: $white;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+@mixin card-background-config($view-class) {
+    #{$view-class} {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        position: relative;
+        font-family: 'Poppins',sans-serif;
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background: #00c5bc;
+            clip-path: polygon(86% 0, 100% 0, 100% 100%, 40% 100%);
+        }
+    }
+}
+
+@mixin card-container-config($max-width, $justify-content) {
+    .container {
+        z-index: 12;
+        max-width: $max-width;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 12px;
+        margin: 0 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        border-width: medium;
+        border-style: solid;
+        border-color: #00c5bc;
+
+        & .conteudo {
+            display: flex;
+            align-items: center;
+            justify-content: $justify-content;
+            padding: 35px 20px;
+        }
+    }
+}

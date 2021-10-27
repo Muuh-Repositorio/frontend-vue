@@ -119,7 +119,7 @@ input#check{
 .container2{
     width: 100%;
     height: 500px;
-    background-color: red;
+    background-color: white;
 }
 
 @media screen and (min-width: 768px){
@@ -137,6 +137,18 @@ input#check{
         height: auto;
         position: initial;
     }
+    .container-menu::after{
+        content: '';
+        display: block;
+        background-color: #00c5bc;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        width: 110%;
+        height: 100vh;
+        clip-path: polygon(37% 0, 100% 0%, 100% 100%, 50% 100%);
+    } 
     .container-menu #menu a{       
         display: inline;
         background-color: transparent;

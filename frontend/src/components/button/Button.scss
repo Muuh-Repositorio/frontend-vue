@@ -1,0 +1,25 @@
+@import '@/assets/sass/Colors.scss';
+@import '@/assets/sass/Mixins.scss';
+
+.button-component {
+    @include card-component-config;
+
+    & input{
+        @include card-input-config;
+    
+        &[type="button"] {
+            color: $white;
+            background: $primary;
+            padding-left: 0;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: #322a45;
+            }
+        }
+    }
+}

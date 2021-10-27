@@ -1,0 +1,34 @@
+@import '@/assets/sass/Colors.scss';
+@import '@/assets/sass/Mixins.scss';
+
+.input-component {
+    @include card-component-config;
+    
+    & input{
+        @include card-input-config;
+
+        &:focus, :valid {
+            border-color: $secondary;
+            background: $white;
+        }
+
+        &:focus ~ label, :valid ~ label {
+            top: 0;
+            left: 12px;
+            display: 14px;
+            color: $primary;
+            background: $white;
+        }
+    }  
+
+    & label {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        color: #636c72;
+        font-size: 15px;
+        pointer-events: none;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+    }
+}
