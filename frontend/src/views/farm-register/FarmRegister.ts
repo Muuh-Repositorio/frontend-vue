@@ -1,0 +1,30 @@
+import { baseApiUrl } from "@/global";
+import axios from "axios";
+import { Options, Vue } from "vue-class-component";
+import { Button, Input, SelectBox } from '../../components'
+
+@Options({
+    name: "FarmRegister",
+    components: { Button, Input, SelectBox }
+})
+export default class FarmRegister extends Vue {
+    farm: any = {}
+    options: any = [ // Conteudo Temporario
+        { id: 'Leite', value: 'Gado de Leite'},
+        { id: 'Corte', value: 'Gado de Corte'},
+        { id: 'Suinos', value: 'Suinos'},
+    ]
+
+    register(): void {
+        const url = `${ baseApiUrl }/<colocar endpoint aqui>`
+        axios.post(url, this.farm)
+            .then(() => {
+                this.resetFields()
+            })
+            .catch()
+    }
+
+    resetFields(): void {
+        this.farm = {}
+    }
+}

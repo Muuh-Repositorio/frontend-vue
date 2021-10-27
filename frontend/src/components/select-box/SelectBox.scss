@@ -1,0 +1,72 @@
+@import '@/assets/sass/Colors.scss';
+
+.select-box .options-container {
+    background: $secondary;
+    color: $white;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    order: 1;
+}
+
+.selected {
+    background: $white;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #636c72;
+    position: relative;
+
+    order: 0;
+}
+
+.select-box .options-container.active {
+    max-height: 170px;
+    opacity: 1;
+    overflow-y: scroll;
+} 
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #0d141f;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box .option,
+.selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box .option:hover {
+    background: #414b57;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
+.conteudo .input-box input[type="button"]{
+    color: $white;
+    background: $primary;
+    padding-left: 0;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.conteudo .input-box input[type="button"]:hover{
+    background-color: $secondary;
+}
