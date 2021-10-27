@@ -4,9 +4,9 @@
             <div class="conteudo">
 
                 <div class="image-box">
-                    <a href="/Home/index.html">
+                    <router-link to="/">
                         <img src="@/assets/images/muuh.png" alt="">
-                    </a>
+                    </router-link>
                 </div>
 
                 <form action="#">
