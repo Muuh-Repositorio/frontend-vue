@@ -1,25 +1,25 @@
+import { baseApiUrl } from "@/global";
 import { Options, Vue } from "vue-class-component";
 import { Input, Button } from '../../components'
-import axios from 'axios'
-import { baseApiUrl } from "@/global";
+import axios from "axios";
 
 @Options({
-    name: "Login",
+    name: "Register",
     components: { Input, Button }
 })
-export default class Login extends Vue {
+export default class Register extends Vue {
     user = {}
 
-    login(): void {
+    register(): void {
         const url = `${ baseApiUrl }/auth/login`
         axios.post(url, this.user)
-            .then(() => {
+             .then(() => {
                 this.resetFields()
-            })
-            .catch()
+             })
+             .catch()
     }
 
-    resetFields(): void {
+    resetFields() {
         this.user = {}
     }
 }

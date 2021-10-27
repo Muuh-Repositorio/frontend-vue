@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import '@/assets/sass/Colors.scss';
 
 @mixin card-component-config() {
     height: 50px;
@@ -27,7 +28,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #ffffff;
+        background: $white;
         position: relative;
         font-family: 'Poppins',sans-serif;
 
@@ -38,7 +39,7 @@
             width: 100%;
             left: 0;
             top: 0;
-            background: #00c5bc;
+            background: $primary;
             clip-path: polygon(86% 0, 100% 0, 100% 100%, 40% 100%);
         }
     }
@@ -49,13 +50,13 @@
         z-index: 12;
         max-width: $max-width;
         width: 100%;
-        background: #ffffff;
+        background: $white;
         border-radius: 12px;
         margin: 0 20px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
         border-width: medium;
         border-style: solid;
-        border-color: #00c5bc;
+        border-color: $primary;
 
         & .conteudo {
             display: flex;

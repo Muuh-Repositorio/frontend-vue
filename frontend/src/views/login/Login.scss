@@ -1,4 +1,5 @@
 @import '@/assets/sass/Mixins.scss';
+@import '@/assets/sass/Colors.scss';
 
 @include card-background-config(".login-view");
 @include card-container-config(1050px, space-between);
@@ -13,7 +14,7 @@
 .conteudo .titulo{
     font-size: 22px;
     font-weight: 500;
-    color: #00c5bc;
+    color: $primary;
 }
 .conteudo form{
     width: 40%;

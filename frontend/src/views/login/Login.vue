@@ -31,7 +31,7 @@
                     />
 
                     <div class="link2">
-                        <a href="../Registro/registro.html">Registre-se</a>
+                        <router-link to="/register">Registre-se</router-link>
                     </div>
                 </form>
             </div>
