@@ -1,5 +1,13 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import { Home, Login, Register, FarmRegister, Dashboard, GeralView } from '../views'
+import { 
+	Home, 
+	Login, 
+	Register, 
+	FarmRegister, 
+	Dashboard, 
+	GeralView,
+	CowRegister
+} from '../views'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -13,12 +21,12 @@ const routes: Array<RouteRecordRaw> = [
 		components: { mainContent: Login}
 	},
 	{
-		name: "Register",
+		name: "Registrar",
 		path: "/register",
 		components: { mainContent: Register}
 	},
 	{
-		name: "Farm Register",
+		name: "Registro Fazenda",
 		path: "/farmRegister",
 		components: { mainContent: FarmRegister}
 	},
@@ -34,6 +42,11 @@ const routes: Array<RouteRecordRaw> = [
 			}
 		]
 	},
+	{
+		name: "Registrar Vaca",
+		path: "/cowRegister",
+		components: { mainContent: CowRegister }
+	}
 ]
 
 const router = createRouter({

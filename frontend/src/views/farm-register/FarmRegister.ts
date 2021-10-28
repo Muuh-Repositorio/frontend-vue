@@ -1,11 +1,11 @@
 import { baseApiUrl } from "@/global";
 import axios from "axios";
 import { Options, Vue } from "vue-class-component";
-import { Button, Input, SelectBox } from '../../components'
+import { Button, Input, SelectBox, ImageBox } from '../../components'
 
 @Options({
     name: "FarmRegister",
-    components: { Button, Input, SelectBox }
+    components: { Button, Input, SelectBox, ImageBox }
 })
 export default class FarmRegister extends Vue {
     farm: any = {}

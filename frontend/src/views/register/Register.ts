@@ -1,11 +1,11 @@
 import { baseApiUrl } from "@/global";
 import { Options, Vue } from "vue-class-component";
-import { Input, Button } from '../../components'
+import { Input, Button, ImageBox } from '../../components'
 import axios from "axios";
 
 @Options({
     name: "Register",
-    components: { Input, Button }
+    components: { Input, Button, ImageBox }
 })
 export default class Register extends Vue {
     user = {}

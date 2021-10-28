@@ -4,7 +4,7 @@
 .input-component {
     @include card-component-config;
     
-    & input{
+    & input {
         @include card-input-config;
 
         &:focus, :valid {
@@ -18,6 +18,16 @@
             display: 14px;
             color: $primary;
             background: $white;
+        }
+
+        /* Esconder placeholder do input date */
+        &[type=date] {
+            &:required:invalid::-webkit-datetime-edit {
+                color: transparent;
+            }
+            &:focus::-webkit-datetime-edit {
+                color: black !important;
+            }
         }
     }  
 

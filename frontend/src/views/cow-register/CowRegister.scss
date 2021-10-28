@@ -1,12 +1,12 @@
 @import '@/assets/sass/Mixins.scss';
 @import '@/assets/sass/Colors.scss';
 
-@include card-background-config(".farm-register-view");
+@include card-background-config(".cow-register-view");
 @include card-container-config(500px, center);
 
 .conteudo form{
     width: 80%;
-    /* margin-right: 30px; */
+    margin-right: 30px;
 }
 
 @media (max-width:1000px) {
@@ -19,13 +19,13 @@
 }
 @media (max-width:900px) {
     .conteudo .image-box{
-        display: none;
+      display: none;
     }
     .conteudo form{
-        width: 100%;
-        /* margin-left: 30px;  */
+      width: 100%;
+      margin-left: 30px;
     }
-}
+  }
 .conteudo .link2{
     text-align: center;
     color: $secondary;

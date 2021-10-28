@@ -4,12 +4,9 @@
             <div class="conteudo">
                 <form action="#">
                    
-                    <div class="image-box">
-                        <router-link to="/">
-                            <img src="@/assets/images/icon-vaca.png" alt="">
-                        </router-link>
-                    </div>
-
+                    <ImageBox
+                        :image="'icon-vaca.png'"
+                    />
                     <Input
                         :type="'text'"
                         :label="'Insira o SEI da propriedade'"

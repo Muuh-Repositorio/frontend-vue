@@ -9,6 +9,7 @@ import DashboardContent from './template/dashboard/content/DashboardContent.vue'
 import DashboardFooter from './template/dashboard/footer/DashboardFooter.vue'
 import PageTitle from './template/dashboard/page-title/PageTitle.vue'
 import Table from './table/Table.vue'
+import ImageBox from './image-box/ImageBox.vue'
 
 export  { 
     Content, 
@@ -21,5 +22,6 @@ export  {
     DashboardContent, 
     DashboardFooter,
     PageTitle,
-    Table
+    Table,
+    ImageBox
 }
