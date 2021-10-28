@@ -6,7 +6,8 @@ import {
 	FarmRegister, 
 	Dashboard, 
 	GeralView,
-	CowRegister
+	CowRegister,
+	InseminationRegister
 } from '../views'
 
 const routes: Array<RouteRecordRaw> = [
@@ -46,6 +47,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Registrar Vaca",
 		path: "/cowRegister",
 		components: { mainContent: CowRegister }
+	},
+	{
+		name: "Registrar Inseminação",
+		path: "/inseminationRegister",
+		components: { mainContent: InseminationRegister }
 	}
 ]
 
