@@ -1,26 +1,31 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import { Home, Login, Register, FarmRegister } from '../views'
+import { Home, Login, Register, FarmRegister, Dashboard } from '../views'
 
 const routes: Array<RouteRecordRaw> = [
     {
 		name: "Home",
 		path: "/",
-		component: Home
+		components: { mainContent: Home }
 	},
 	{
 		name: "Login",
 		path: "/login",
-		component: Login
+		components: { mainContent: Login}
 	},
 	{
 		name: "Register",
 		path: "/register",
-		component: Register
+		components: { mainContent: Register}
 	},
 	{
 		name: "Farm Register",
 		path: "/farmRegister",
-		component: FarmRegister
+		components: { mainContent: FarmRegister}
+	},
+	{
+		name: "Dashboard",
+		path: "/dashboard",
+		components: { mainContent: Dashboard}
 	}
 ]
 
