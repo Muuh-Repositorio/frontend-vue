@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import { Home, Login, Register, FarmRegister, Dashboard } from '../views'
+import { Home, Login, Register, FarmRegister, Dashboard, GeralView } from '../views'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -25,8 +25,15 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		name: "Dashboard",
 		path: "/dashboard",
-		components: { mainContent: Dashboard}
-	}
+		components: { mainContent: Dashboard},
+		children: [
+			{
+				name: "Geral",
+				path: "/dashboard/geral",
+				components: { dashboardContent: GeralView }
+			}
+		]
+	},
 ]
 
 const router = createRouter({

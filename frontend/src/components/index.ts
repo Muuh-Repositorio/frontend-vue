@@ -7,6 +7,8 @@ import DashboardHeader from './template/dashboard/header/DashboardHeader.vue'
 import Card from './card/Card.vue'
 import DashboardContent from './template/dashboard/content/DashboardContent.vue'
 import DashboardFooter from './template/dashboard/footer/DashboardFooter.vue'
+import PageTitle from './template/dashboard/page-title/PageTitle.vue'
+import Table from './table/Table.vue'
 
 export  { 
     Content, 
@@ -17,5 +19,7 @@ export  {
     DashboardHeader, 
     Card, 
     DashboardContent, 
-    DashboardFooter 
+    DashboardFooter,
+    PageTitle,
+    Table
 }
