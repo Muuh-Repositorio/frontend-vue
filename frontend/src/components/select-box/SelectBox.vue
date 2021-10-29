@@ -1,13 +1,13 @@
 <template>
     <div class="select-box-component">
-        <div class="selected">
+        <div class="selected" @click="selectOption(id)" :id="id">
             {{ title }}
         </div>
         <div class="select-box">
-            <div class="options-container">
-                <div class="option" v-for="option in options" :key="option">
-                    <input type="radio" class="radio" :id="option.id" name="category">
-                    <label :for="option.id" :value="modelValue">{{ option.value }}</label>
+            <div class="options-container" :id="id">
+                <div class="option" :id="id" v-for="option in options" :key="option">
+                    <input type="radio" class="radio">
+                    <label :value="modelValue">{{ option.value }}</label>
                 </div>
             </div>
         </div>
