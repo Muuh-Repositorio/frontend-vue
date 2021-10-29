@@ -22,10 +22,23 @@ export default class App extends Vue {}
 
 
 <style lang="scss">
+	@import '@/assets/sass/Colors.scss';
+
 	* {
 		margin: 0;
 		padding: 0;
 		// font-family: sans-serif;
 		scroll-behavior: smooth;
+	}
+
+    ::-webkit-scrollbar {
+		width: 7px;
+		height: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: $white;
+	}
+	::-webkit-scrollbar-thumb {
+		background: $primary;
 	}
 </style>
