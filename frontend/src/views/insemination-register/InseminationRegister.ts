@@ -1,4 +1,5 @@
-import { baseApiUrl } from "@/global";
+import { success } from "@/config/toasted";
+import { baseApiUrl, showError } from "@/global";
 import axios from "axios";
 import { Options, Vue } from "vue-class-component";
 import { Input, ImageBox, Button } from '../../components'
@@ -11,12 +12,13 @@ export default class InseminationRegister extends Vue {
     cow = {}
 
     register(): void {
-        const url = `${ baseApiUrl }/<colocar endpoint aqui>`
+        const url = `${ baseApiUrl }/insemination`
         axios.post(url, this.cow)
             .then(() => {
+                success()
                 this.resetFields()
             })
-            .catch()
+            .catch(showError)
     }
 
     resetFields(): void {
