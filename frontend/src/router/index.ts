@@ -7,7 +7,8 @@ import {
 	Dashboard, 
 	GeralView,
 	CowRegister,
-	InseminationRegister
+	InseminationRegister,
+	PathNotFound
 } from '../views'
 
 const routes: Array<RouteRecordRaw> = [
@@ -52,6 +53,11 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Registrar Inseminação",
 		path: "/inseminationRegister",
 		components: { mainContent: InseminationRegister }
+	},
+	{	
+		name: "Página não Encontrada",
+		path: "/:pathMatch(.*)*",
+		components: { mainContent: PathNotFound }
 	}
 ]
 

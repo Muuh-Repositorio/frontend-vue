@@ -6,6 +6,7 @@ import Dashboard from './dashboard/Dashboard.vue'
 import GeralView from './geral-view/GeralView.vue'
 import CowRegister from './cow-register/CowRegister.vue'
 import InseminationRegister from './insemination-register/InseminationRegister.vue'
+import PathNotFound from './path-not-found/PathNotFound.vue'
 
 export { 
     Home, 
@@ -15,5 +16,6 @@ export {
     Dashboard,
     GeralView,
     CowRegister,
-    InseminationRegister
+    InseminationRegister,
+    PathNotFound
 }
