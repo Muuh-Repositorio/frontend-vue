@@ -19,6 +19,7 @@ export default class DashboardHeader extends Vue {
 
     logout(): void {
         localStorage.removeItem(userKey)
+        store.dispatch('setUser', null)
         this.$router.push("/")
     }
 
