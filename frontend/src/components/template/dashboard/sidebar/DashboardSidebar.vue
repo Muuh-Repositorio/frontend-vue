@@ -28,9 +28,16 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/">
+                    <router-link to="/cowRegister">
                         <a class="nav-link">
                             <span>Cadastrar Vaca</span>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/inseminationRegister">
+                        <a class="nav-link">
+                            <span>Cadastrar Inseminação</span>
                         </a>
                     </router-link>
                 </li>
