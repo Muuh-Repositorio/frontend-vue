@@ -19,7 +19,7 @@ export default class Login extends Vue {
                 success()
                 this.resetFields()
                 this.setUser(response)
-                this.$router.push('/dashboard/geral')
+                window.location.reload()
             })
             .catch(showError)
     }
