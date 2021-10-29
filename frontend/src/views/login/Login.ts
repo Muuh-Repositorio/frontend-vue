@@ -3,14 +3,13 @@ import { Input, Button } from '../../components'
 import axios from 'axios'
 import { baseApiUrl, showError, userKey } from "@/global";
 import { success } from "@/config/toasted";
-import { useStore } from "vuex";
+import store from "@/store";
 
 @Options({
     name: "Login",
     components: { Input, Button },
 })
 export default class Login extends Vue {
-    store = useStore()
     user = {}
 
     login(): void {
@@ -26,7 +25,7 @@ export default class Login extends Vue {
     }
 
     setUser(response: any): void {
-        this.store.dispatch("setUser", response.data)
+        store.dispatch("setUser", response.data)
         localStorage.setItem(userKey, JSON.stringify(response.data))
     }
 

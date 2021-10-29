@@ -10,6 +10,7 @@ import {
 	InseminationRegister,
 	PathNotFound
 } from '../views'
+import { validToken } from './Validations'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -20,22 +21,24 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		name: "Login",
 		path: "/login",
-		components: { mainContent: Login}
+		components: { mainContent: Login }
 	},
 	{
 		name: "Registrar",
 		path: "/register",
-		components: { mainContent: Register}
+		components: { mainContent: Register} 
 	},
 	{
 		name: "Registro Fazenda",
 		path: "/farmRegister",
-		components: { mainContent: FarmRegister}
+		components: { mainContent: FarmRegister },
+		meta: { requiresLogin: true }
 	},
 	{
 		name: "Dashboard",
 		path: "/dashboard",
-		components: { mainContent: Dashboard},
+		components: { mainContent: Dashboard },
+		meta: { requiresLogin: true },
 		children: [
 			{
 				name: "Geral",
@@ -47,12 +50,14 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		name: "Registrar Vaca",
 		path: "/cowRegister",
-		components: { mainContent: CowRegister }
+		components: { mainContent: CowRegister },
+		meta: { requiresLogin: true }
 	},
 	{
 		name: "Registrar Inseminação",
 		path: "/inseminationRegister",
-		components: { mainContent: InseminationRegister }
+		components: { mainContent: InseminationRegister },
+		meta: { requiresLogin: true }
 	},
 	{	
 		name: "Página não Encontrada",
@@ -64,6 +69,19 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
 	history: createWebHistory(process.env.BASE_URL),
 	routes
+})
+
+router.beforeEach(async (to, from, next) => {
+	if (to.matched.some(record => record.meta.requiresLogin)) {
+		const isValid = await validToken()
+		if (isValid) {
+			next()
+		} else {
+			next({ path: "/login" })
+		}
+	} else {
+		next()
+	}
 })
 
 export default router
