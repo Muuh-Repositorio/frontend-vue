@@ -7,3 +7,7 @@
 
 <script lang="ts" src='./Input.ts'></script>
 <style lang="scss" scoped src='./Input.scss'></style>
+
+<style>
+    
+</style>

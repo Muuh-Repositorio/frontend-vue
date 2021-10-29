@@ -14,7 +14,7 @@
                         v-model="user.name"
                     />
                     <Input 
-                        :type="'text'"
+                        :type="'number'"
                         :label="'Insira seu CPF'"
                         v-model="user.cpf"
                     />
@@ -26,7 +26,7 @@
                     <Input 
                         :type="'number'"
                         :label="'Insira seu Telefone'"
-                        v-model="user.phone_number"
+                        v-model="user.phone"
                     />
                     <Input 
                         :type="'password'"

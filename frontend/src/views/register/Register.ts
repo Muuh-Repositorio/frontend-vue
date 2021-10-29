@@ -1,7 +1,8 @@
-import { baseApiUrl } from "@/global";
+import { baseApiUrl, showError } from "@/global";
 import { Options, Vue } from "vue-class-component";
 import { Input, Button, ImageBox } from '../../components'
 import axios from "axios";
+import { success } from "@/config/toasted";
 
 @Options({
     name: "Register",
@@ -10,13 +11,14 @@ import axios from "axios";
 export default class Register extends Vue {
     user = {}
 
-    register(): void {
-        const url = `${ baseApiUrl }/auth/login`
+    async register(): Promise<void> {
+        const url = `${ baseApiUrl }/user`
         axios.post(url, this.user)
              .then(() => {
+                success()
                 this.resetFields()
              })
-             .catch()
+             .catch(showError)
     }
 
     resetFields() {

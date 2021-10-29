@@ -7,12 +7,12 @@
     & input {
         @include card-input-config;
 
-        &:focus, :valid {
+        &:focus, &:valid {
             border-color: $secondary;
             background: $white;
         }
 
-        &:focus ~ label, :valid ~ label {
+        &:focus ~ label, &:valid ~ label {
             top: 0;
             left: 12px;
             display: 14px;
