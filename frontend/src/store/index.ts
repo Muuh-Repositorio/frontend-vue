@@ -3,10 +3,10 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-	user: null
+	user: null,
   },
   mutations: {
-	setUser(state, user): void {
+	SET_USER(state, user): void {
 		state.user = user
 		if (user) {
 			axios.defaults.headers.common['Authorization'] = `bearer ${user.access_token}`
@@ -16,6 +16,14 @@ export default createStore({
 	}
   },
   actions: {
+	setUser({commit}, user): void {
+		commit('SET_USER', user)
+	}
+  },
+  getters: {
+	getUser(state) {
+		return state.user
+	}
   },
   modules: {
   }
