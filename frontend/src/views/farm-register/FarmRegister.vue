@@ -28,7 +28,7 @@
                     />
 
                     <div class="link2">
-                        <router-link to="/">Voltar</router-link>
+                        <router-link to="/dashboard/geral">Voltar</router-link>
                     </div>
                 </form>
             </div>

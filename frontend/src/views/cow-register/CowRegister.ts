@@ -10,9 +10,16 @@ import { Input, SelectBox, Button, ImageBox } from '../../components'
     components: { Input, SelectBox, Button, ImageBox }
 })
 export default class CowRegister extends Vue {
+    showInitialInfo = true
+    showMoreInfo = false
+    weightOrAgeIsValid = false
+    alreadyGaveBirth = 'Não'
+    alreadyInseminated = 'Não'
+    
     cow: any = {
         idt_farm: store.getters.getFarm
     }
+
     options: any = [ // Conteudo Temporario
         { id: 'Gir', value: 'Raça Gir'},
         { id: 'Girolando', value: 'Raça Girolando'},
@@ -21,6 +28,11 @@ export default class CowRegister extends Vue {
         { id: 'Jersey', value: 'Raça Jersey'},
         { id: 'Pardo', value: 'Raça Pardo Suiço'},
         { id: 'Sindi', value: 'Raça Sindi'},
+    ]
+    
+    trueOrFalse: any = [
+        { id: true, value: "Sim" },
+        { id: false, value: "Não" },
     ]
 
     register(): void {
@@ -37,6 +49,23 @@ export default class CowRegister extends Vue {
                 this.resetFields()
             })
             .catch(showError)
+    }
+
+    continue_(): void {
+        // Validar peso e idade com o backend
+        this.weightOrAgeIsValid = true
+        if (this.weightOrAgeIsValid) {
+            this.showMoreInfo = true
+            this.showInitialInfo = false
+        } else {
+            this.cow.idt_situation = 0
+            this.register()
+        }
+    }
+
+    return_(): void {
+        this.showMoreInfo = false
+        this.showInitialInfo = true
     }
 
     resetFields(): void {
