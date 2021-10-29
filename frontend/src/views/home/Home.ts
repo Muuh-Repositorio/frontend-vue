@@ -1,9 +1,12 @@
+import store from "@/store";
 import { Options, Vue } from "vue-class-component";
 
 @Options({
     name: "Home"
 })
 export default class Home extends Vue {
+    user = store.getters.getUser
+
     bossLogoAnimation(): void {
         const image: any = document.querySelector('#logo');
         window.addEventListener('scroll' , () => {

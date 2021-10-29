@@ -15,7 +15,8 @@
                     <a href=""><i class="fas fa-home"></i> Início </a>
                     <a href="#container2">Sobre</a>
                     <a href="">Dúvidas</a>  
-                    <router-link to="/login">Login</router-link>  
+                    <router-link to="/login" v-if="!user">Login</router-link>  
+                    <router-link to="/dashboard/geral" v-else>Visão Geral</router-link>  
                 </div>
             </header>
             <div id="bem-vindo">
