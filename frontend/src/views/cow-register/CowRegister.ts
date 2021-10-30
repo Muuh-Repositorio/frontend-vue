@@ -39,7 +39,7 @@ export default class CowRegister extends Vue {
         // Temporario ----------
         this.cow.idt_type = 0
         this.cow.idt_farm = 13
-        this.cow.idt_situation = 1
+        // this.cow.idt_situation = 1
         // --------------------
 
         const url = `${ baseApiUrl }/cow`

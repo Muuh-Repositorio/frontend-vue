@@ -68,7 +68,7 @@
                    <Button
                         :value="'Cadastrar Vaca'"
                         @click="register()"
-                        v-show="showMoreInfo"
+                        v-show="showMoreInfo || cow.idt_situation !== undefined"
                     />
                     <Button
                         :value="'Editar Informações'"
