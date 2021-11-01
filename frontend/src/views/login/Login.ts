@@ -4,15 +4,18 @@ import axios from 'axios'
 import { baseApiUrl, showError, userKey } from "@/global";
 import { success } from "@/config/toasted";
 import store from "@/store";
+import { removeMask } from '@/components/input/Input'
 
 @Options({
     name: "Login",
     components: { Input, Button },
 })
 export default class Login extends Vue {
-    user = {}
+    user: any = {}
 
     login(): void {
+        this.user.cpf = removeMask(this.user.cpf)
+
         const url = `${ baseApiUrl }/auth/login`
         axios.post(url, this.user)
             .then((response) => {

@@ -15,6 +15,7 @@
                         :type="'text'"
                         :label="'Insira seu CPF'"
                         v-model="user.cpf"
+                        :mask="'###.###.###-##'"
                     />
                     <Input 
                         :type="'password'"

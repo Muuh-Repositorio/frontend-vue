@@ -14,9 +14,10 @@
                         v-model="user.name"
                     />
                     <Input 
-                        :type="'number'"
+                        :type="'text'"
                         :label="'Insira seu CPF'"
                         v-model="user.cpf"
+                        :mask="'###.###.###-##'"
                     />
                     <Input 
                         :type="'email'"
@@ -24,9 +25,10 @@
                         v-model="user.email"
                     />
                     <Input 
-                        :type="'number'"
+                        :type="'text'"
                         :label="'Insira seu Telefone'"
                         v-model="user.phone"
+                        :mask="'(##) # ####-####'"
                     />
                     <Input 
                         :type="'password'"
