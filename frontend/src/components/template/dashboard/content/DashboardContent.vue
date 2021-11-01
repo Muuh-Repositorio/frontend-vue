@@ -18,4 +18,3 @@ export default class DashboardContent extends Vue {}
 <style scoped src='@/views/dashboard/assets/css/muuh-dashboard.css'></style>
 <style scoped src='@/views/dashboard/assets/css/muuh-dashboard.min.css'></style>
 <style scoped src='@/views/dashboard/assets/datatables/dataTables.bootstrap4.min.css'></style>
-<style scoped src='@/views/dashboard/assets/fontawesome-free/css/all.min.css'></style>
