@@ -6,24 +6,24 @@
         <div class="row">
             <Card 
                 :title="'Total de Vacas'"
-                :value="0"
+                :value="cows.length"
             />
             <Card 
                 :title="'Vacas Inseminadas'"
-                :value="0"
+                :value="inseminatedCows"
             />
             <Card 
                 :title="'Vacas Disponíveis'"
-                :value="0"
+                :value="availableCows"
             />
             <Card 
                 :title="'Total de Partos'"
-                :value="0"
+                :value="allChildbirth"
             />
         </div>
         <Table 
             :title="'Visão Geral'"
-            :data="dados"
+            :data="cows"
             :fields="fields"
         />
     </div>
