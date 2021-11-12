@@ -5,6 +5,8 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
+                <TableFilter />
+
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
@@ -19,8 +21,11 @@
                                 {{ item[field.value] }}
                             </td>
                         </tr>
+                        
                     </tbody>
                 </table>
+
+                <TablePagination />
             </div>
         </div>
     </div>
@@ -30,4 +35,3 @@
 
 <style scoped src='@/views/dashboard/assets/css/muuh-dashboard.css'></style>
 <style scoped src='@/views/dashboard/assets/css/muuh-dashboard.min.css'></style>
-<style scoped src='@/views/dashboard/assets/datatables/dataTables.bootstrap4.min.css'></style>
