@@ -1,4 +1,4 @@
-import TableFilter from './TableFilter.vue'
 import TablePagination from './TablePagination.vue'
+import TableSelect from './TableSelect.vue'
 
-export { TableFilter, TablePagination }
+export { TablePagination, TableSelect }

@@ -5,7 +5,19 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <TableFilter />
+
+                <div class="filters">
+                    <TableSelect
+                        v-model="numberOfItens"
+                        @change="selectNumberOfItens(numberOfItens)"
+                    />
+
+                    <TablePagination
+                        v-model="pageSelected"
+                        :numberOfPages="numberOfPages"
+                        @change="selectPage()"
+                    />
+                </div>
 
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -16,16 +28,13 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        <tr v-for="item in data" :key="item">
+                        <tr v-for="item in dataFiltered" :key="item">
                             <td scope="row" v-for="field in fields" :key="field">
                                 {{ item[field.value] }}
                             </td>
                         </tr>
-                        
                     </tbody>
                 </table>
-
-                <TablePagination />
             </div>
         </div>
     </div>
@@ -33,5 +42,6 @@
 
 <script lang="ts" src="./Table.ts"></script>
 
+<style lang="scss" scoped src="./Table.scss"></style>
 <style scoped src='@/views/dashboard/assets/css/muuh-dashboard.css'></style>
 <style scoped src='@/views/dashboard/assets/css/muuh-dashboard.min.css'></style>

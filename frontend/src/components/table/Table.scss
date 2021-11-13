@@ -1,0 +1,13 @@
+.filters {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 553px) {
+    .filters {
+        display: block;
+        padding-bottom: 10px;
+    }
+}

@@ -1,30 +1,62 @@
 <template>
     <div class="pagination">
-        <nav>
-            <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
-                    <a class="page-link" tabindex="-1">Anterior</a>
-                </li>
-                    <li class="page-item"><a class="page-link">1</a></li>
-                <li class="page-item">
-                    <a class="page-link" >Próxima</a>
-                </li>
-            </ul>
-        </nav>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+                <label>Página</label>
+            </div>
+            <div class="col-auto my-1">
+                <select 
+                    class="custom-select mr-sm-2" 
+                    id="inlineFormCustomSelect"
+                    v-model="pageSelected"
+                    @change="selectPage()"
+                >
+                    <option :value="page" v-for="page in numberOfPages" :key="page">
+                        {{ page }}
+                    </option>
+                </select>
+            </div>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
+import { toRefs } from "@vue/runtime-dom";
 import { Options, Vue } from 'vue-class-component';
 
 @Options({
-    name: 'TablePagination'
+    name: 'TablePagination',
+    props: [ 'numberOfPages' ]
 })
-export default class TablePagination extends Vue {}
+export default class TablePagination extends Vue {
+    props: any = toRefs(this.$props)
+    pageSelected: number = 1
+
+    selectPage() {
+        this.$emit('update:modelValue', this.pageSelected)
+    }
+
+    mounted() {   
+        this.$emit('update:modelValue', this.pageSelected)
+    }
+}
 </script>
 
 <style lang="scss" scoped>
-    .pagination {
-        justify-content: flex-end;
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    #inlineFormCustomSelect {
+        width: 55px;
+        height: 28px;
+        padding-left: 5px;
+    }
+
+    @media screen and (max-width: 553px) {
+        .pagination {
+            padding-left: 0px;
+        }
     }
 </style>
