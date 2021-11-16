@@ -8,7 +8,8 @@ import {
 	GeralView,
 	CowRegister,
 	InseminationRegister,
-	PathNotFound
+	PathNotFound,
+	FarmSelector
 } from '../views'
 import { validToken } from './Validations'
 
@@ -63,6 +64,12 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Página não Encontrada",
 		path: "/:pathMatch(.*)*",
 		components: { mainContent: PathNotFound }
+	},
+	{
+		name: "Fazendas",
+		path: "/farms",
+		components: { mainContent: FarmSelector },
+		meta: { requiresLogin: true }
 	}
 ]
 
