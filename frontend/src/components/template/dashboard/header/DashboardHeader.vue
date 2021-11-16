@@ -38,6 +38,10 @@
                             <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                             Configurações
                         </a>
+                        <router-link to="/farms" class="dropdown-item" href="#">
+                            <i class="fas fa-sync fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Trocar Fazenda
+                        </router-link>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" @click="logout()">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

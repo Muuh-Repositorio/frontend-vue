@@ -1,4 +1,4 @@
-import { userKey } from "@/global";
+import { farmKey, userKey } from "@/global";
 import { Options, Vue } from "vue-class-component";
 import store from "@/store";
 
@@ -19,11 +19,8 @@ export default class DashboardHeader extends Vue {
 
     logout(): void {
         localStorage.removeItem(userKey)
+        localStorage.removeItem(farmKey)
         store.dispatch('setUser', null)
         this.$router.push("/")
-    }
-
-    mounted(): void {
-        
     }
 }

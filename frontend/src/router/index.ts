@@ -11,7 +11,7 @@ import {
 	PathNotFound,
 	FarmSelector
 } from '../views'
-import { validToken } from './Validations'
+import { validations } from './Validations'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Dashboard",
 		path: "/dashboard",
 		components: { mainContent: Dashboard },
-		meta: { requiresLogin: true },
+		meta: { requiresLogin: true, requiresFarm: true },
 		children: [
 			{
 				name: "Geral",
@@ -52,13 +52,13 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Registrar Vaca",
 		path: "/cowRegister",
 		components: { mainContent: CowRegister },
-		meta: { requiresLogin: true }
+		meta: { requiresLogin: true, requiresFarm: true }
 	},
 	{
 		name: "Registrar Inseminação",
 		path: "/inseminationRegister",
 		components: { mainContent: InseminationRegister },
-		meta: { requiresLogin: true }
+		meta: { requiresLogin: true, requiresFarm: true }
 	},
 	{	
 		name: "Página não Encontrada",
@@ -79,16 +79,13 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-	if (to.matched.some(record => record.meta.requiresLogin)) {
-		const isValid = await validToken()
-		if (isValid) {
-			next()
-		} else {
-			next({ path: "/login" })
-		}
-	} else {
-		next()
+	let path = undefined
+	const metas = Object.keys(to.meta)
+	for (const meta of metas) {
+		path = await validations[meta]()
+		if (path !== undefined) break
 	}
+	next(path)
 })
 
 export default router

@@ -1,11 +1,22 @@
-import { baseApiUrl, userKey } from "@/global";
+import { baseApiUrl, farmKey, userKey } from "@/global";
 import store from "@/store";
 import axios from "axios";
 
-const userStorage: any = localStorage.getItem(userKey)
-const userData = JSON.parse(userStorage)
+export const validations: any = {
+    requiresLogin: async () => {
+        const isValid = await validToken()
+        return isValid ? undefined : { path: '/login' }
+    },
+    requiresFarm: () => {
+        const farmSelected = farmValidation()
+        return farmSelected ? undefined : { path: '/farms' }
+    }
+}
 
-export async function validToken(): Promise<boolean> {
+async function validToken(): Promise<boolean> {
+    const userStorage: any = localStorage.getItem(userKey)
+    const userData = JSON.parse(userStorage)
+
     store.dispatch("setUser", null)
 
     const url = `${ baseApiUrl }/auth/validateToken`
@@ -16,6 +27,16 @@ export async function validToken(): Promise<boolean> {
         return true
     } else {
         localStorage.removeItem(userKey)
+        return false
+    }
+}
+
+function farmValidation(): boolean {
+    const idt_farm = localStorage.getItem(farmKey)
+    if (idt_farm) {
+        store.dispatch('setFarm', idt_farm)
+        return true
+    } else {
         return false
     }
 }

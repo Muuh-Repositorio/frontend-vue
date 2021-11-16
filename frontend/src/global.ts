@@ -1,4 +1,5 @@
 export const userKey = '___muuh_user'
+export const farmKey = '___muuh_farm'
 export const baseApiUrl = 'http://localhost:3000/api'
 
 import { error } from './config/toasted'

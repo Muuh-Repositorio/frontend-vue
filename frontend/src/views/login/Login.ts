@@ -35,7 +35,7 @@ export default class Login extends Vue {
     redirectUserLogged(): void {
         const user = localStorage.getItem(userKey)
         if (user) {
-            this.$router.push('/dashboard/geral')
+            this.$router.push('/dashboard')
         }
     }
 

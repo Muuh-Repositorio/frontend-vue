@@ -4,7 +4,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
 	user: null,
-	farm: 15
+	farm: null
   },
   mutations: {
 	SET_USER(state, user): void {
