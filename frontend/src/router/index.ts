@@ -9,7 +9,8 @@ import {
 	CowRegister,
 	InseminationRegister,
 	PathNotFound,
-	FarmSelector
+	FarmSelector,
+	ControlView
 } from '../views'
 import { validations } from './Validations'
 
@@ -45,6 +46,11 @@ const routes: Array<RouteRecordRaw> = [
 				name: "Geral",
 				path: "/dashboard/geral",
 				components: { dashboardContent: GeralView }
+			},
+			{
+				name: "Controle",
+				path: "/dashboard/control",
+				components: { dashboardContent: ControlView }
 			}
 		]
 	},
