@@ -26,7 +26,7 @@ async function validToken(): Promise<boolean> {
         store.dispatch("setUser", userData)
         return true
     } else {
-        localStorage.removeItem(userKey)
+        localStorage.clear()
         return false
     }
 }
