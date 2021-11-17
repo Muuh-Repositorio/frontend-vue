@@ -22,14 +22,14 @@ export default class GeralView extends Vue {
 
     filterValues = [
         { value: null, text: 'Todas' },
-        { value: 'Heifer', text: 'Novilhas' },
-        { value: 'Able', text: 'Aptas' },
-        { value: 'Inseminated', text: 'Inseminadas' },
-        { value: 'Pregnant', text: 'Grávidas' },
-        { value: 'Dry', text: 'Secas' },
-        { value: 'Birth', text: 'Paridas' },
-        { value: 'Sold', text: 'Vendidas' },
-        { value: 'Dead', text: 'Mortas' }
+        { value: 'Novilha', text: 'Novilhas' },
+        { value: 'Apta', text: 'Aptas' },
+        { value: 'Inseminada', text: 'Inseminadas' },
+        { value: 'Grávida', text: 'Grávidas' },
+        { value: 'Seca', text: 'Secas' },
+        { value: 'Parida', text: 'Paridas' },
+        { value: 'Vendida', text: 'Vendidas' },
+        { value: 'Morta', text: 'Mortas' }
     ]
 
     cows = []
@@ -76,6 +76,7 @@ export default class GeralView extends Vue {
     filterData(value: any) {
         if (value !== null) {
             const url = `${ baseApiUrl }/cow/farm/${ store.getters.getFarm }?situation=${value}`
+            console.log(url)
             axios.get(url)
                 .then((response) => {
                     this.cows = response.data
