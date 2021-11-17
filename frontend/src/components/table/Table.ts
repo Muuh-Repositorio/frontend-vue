@@ -1,20 +1,26 @@
-import { computed, toRefs, watch } from "@vue/runtime-dom";
+import store from "@/store";
+import { computed, toRefs } from "@vue/runtime-dom";
 import { Options, Vue } from "vue-class-component";
-import { TablePagination, TableSelect } from './components'
+import { TablePagination, TableSelect, TableFilter } from './components'
 
 @Options({
     name: "Table",
-    props: ['data', 'fields', 'title'],
-    components: { TablePagination, TableSelect }
+    props: ['data', 'fields', 'title', 'selectBox', 'filterTitle', 'filterValues'],
+    components: { TablePagination, TableSelect, TableFilter }
 })
 export default class Table extends Vue {
     props: any = toRefs(this.$props)
+
+    filterSelected: any = null
 
     dataFiltered: any = []
     numberOfItens: any = 0
 
     pageSelected: number = 1
     dataInPage: any = []
+
+    itemsSelected: any = []
+    buttonText = ''
 
     dataFilter = (start: number, end: number) => computed(() => {
         return this.props.data.slice(start, end)
@@ -48,6 +54,47 @@ export default class Table extends Vue {
         const start = end - this.numberOfItens
 
         this.setData(start, end)
+    }
+
+    selectItem(item: any) {
+        const button = document.getElementById('btn-actions')
+        
+        if (this.itemsSelected.length === 1 && item.selected) {
+            button?.classList.remove('btn-enabled')
+            button?.classList.add('btn-disabled')
+        }
+
+        if (item.selected !== undefined) {
+            this.itemsSelected.splice(item.index, 1)
+            delete item.selected
+            delete item.index
+
+        } else {
+            item.index = this.itemsSelected.length
+            item.selected = true
+            this.itemsSelected.push(item)
+            
+            button?.classList.add('btn-enabled')
+            button?.classList.remove('btn-disabled')
+        }
+    }
+
+    selectFilter() {
+        this.itemsSelected = []
+        this.$emit('filter', this.filterSelected)
+
+        if (this.props.selectBox) {
+            for (const value of this.props.filterValues) {
+                if (value.value === this.filterSelected) {
+                    this.buttonText = value.text
+                }
+            }
+        }
+    }
+
+    teste() {
+        // store.dispatch('setItems', this.itemsSelected)
+        // this.$router.push({ path: '/inseminationRegister'})
     }
 
     mounted() {

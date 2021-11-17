@@ -11,3 +11,44 @@
         padding-bottom: 10px;
     }
 }
+
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* BOTÃO DESABILITADO */
+.btn-disabled{
+    font-family: 'Poppins',sans-serif;
+    background-color: #d5d5d5;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+button#btn-actions.btn-disabled:hover{
+    cursor: not-allowed;
+}
+
+/* BOTÃO HABILITADO */
+.btn-enabled{
+    font-family: 'Poppins',sans-serif;  
+    color: #fff;
+    background-color: #00c5bc;
+    padding-left: 0;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.btn-enabled:hover{
+    background-color: #322a45;
+}

@@ -2,6 +2,15 @@
     <div class="table-component card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-muuh">{{ title }}</h6>
+            <button 
+                class="btn-disabled" 
+                id="btn-actions" 
+                type="submit"
+                @click="teste()"
+                v-show="selectBox && filterSelected"
+            > 
+                {{ buttonText }}
+            </button>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -12,10 +21,11 @@
                         @change="selectNumberOfItens(numberOfItens)"
                     />
 
-                    <TablePagination
-                        v-model="pageSelected"
-                        :numberOfPages="numberOfPages"
-                        @change="selectPage()"
+                    <TableFilter
+                        :title="filterTitle"
+                        :values="filterValues"
+                        v-model="filterSelected"
+                        @change="selectFilter()"
                     />
                 </div>
 
@@ -23,8 +33,9 @@
                     <thead>
                         <tr>
                             <th scope="col" v-for="field in fields" :key="field">
-                                {{ field.text }}
+                                {{ field.text }}  
                             </th>
+                            <th v-show="selectBox">Selecionar</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -32,9 +43,18 @@
                             <td scope="row" v-for="field in fields" :key="field">
                                 {{ item[field.value] }}
                             </td>
+                            <td v-show="selectBox">
+                                <input type="checkbox" class="check-dgn" title="Apta" @click="selectItem(item)">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <TablePagination
+                    v-model="pageSelected"
+                    :numberOfPages="numberOfPages"
+                    @change="selectPage()"
+                />
             </div>
         </div>
     </div>
