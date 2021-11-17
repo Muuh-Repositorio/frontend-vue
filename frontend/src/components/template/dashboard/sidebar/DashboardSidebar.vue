@@ -21,6 +21,20 @@
 
             <div class="nav-container">
                 <li class="nav-item">
+                    <router-link to="/dashboard/geral">
+                        <a class="nav-link">
+                            <span>Visão Geral</span>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/dashboard/control">
+                        <a class="nav-link">
+                            <span>Controle de Gado</span>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
                     <router-link to="/farmRegister">
                         <a class="nav-link">
                             <span>Cadastrar Fazenda</span>
