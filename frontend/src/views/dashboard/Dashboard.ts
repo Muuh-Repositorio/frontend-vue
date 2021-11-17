@@ -5,12 +5,4 @@ import { DashboardSidebar, DashboardHeader, Card, DashboardContent, DashboardFoo
     name: "Dashboard",
     components: { DashboardSidebar, DashboardHeader, Card, DashboardContent, DashboardFooter }
 })
-export default class Dashboard extends Vue {
-    redirect(): void {
-        this.$router.push('/dashboard/geral')
-    }
-
-    mounted(): void {
-        this.redirect()
-    }
-}
+export default class Dashboard extends Vue {}
