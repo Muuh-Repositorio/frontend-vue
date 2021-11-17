@@ -25,6 +25,10 @@
             :title="'Visão Geral'"
             :data="cows"
             :fields="fields"
+            :selectBox="false"
+            :filterTitle="'Mostrar vacas'"
+            :filterValues="filterValues"
+            @filter="filterData"
         />
     </div>
 </template>

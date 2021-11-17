@@ -20,6 +20,18 @@ export default class GeralView extends Vue {
         { value: 'diagnosis', text: "Diagnóstico"},
     ]
 
+    filterValues = [
+        { value: null, text: 'Todas' },
+        { value: 'Heifer', text: 'Novilhas' },
+        { value: 'Able', text: 'Aptas' },
+        { value: 'Inseminated', text: 'Inseminadas' },
+        { value: 'Pregnant', text: 'Grávidas' },
+        { value: 'Dry', text: 'Secas' },
+        { value: 'Birth', text: 'Paridas' },
+        { value: 'Sold', text: 'Vendidas' },
+        { value: 'Dead', text: 'Mortas' }
+    ]
+
     cows = []
     availableCows = 0
     inseminatedCows = 0
@@ -59,6 +71,19 @@ export default class GeralView extends Vue {
                 this.allChildbirth = response.data.length
             })
             .catch(showError)
+    }
+    
+    filterData(value: any) {
+        if (value !== null) {
+            const url = `${ baseApiUrl }/cow/farm/${ store.getters.getFarm }?situation=${value}`
+            axios.get(url)
+                .then((response) => {
+                    this.cows = response.data
+                })
+                .catch(showError)
+        } else {
+            this.loadAllCows()
+        }
     }
 
     mounted() {
