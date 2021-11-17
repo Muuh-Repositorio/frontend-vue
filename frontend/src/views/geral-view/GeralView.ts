@@ -33,6 +33,7 @@ export default class GeralView extends Vue {
     ]
 
     cows = []
+    totalCows = 0
     availableCows = 0
     inseminatedCows = 0
     allChildbirth = 0
@@ -46,29 +47,14 @@ export default class GeralView extends Vue {
              .catch(showError)
     }
 
-    loadAvailableCows() {
-        const url = `${ baseApiUrl }/cow/farm/${ store.getters.getFarm }/able?for=Inseminate`
+    loadStats() {
+        const url = `${ baseApiUrl }/farm/${ store.getters.getFarm }/stats`
         axios.get(url)
             .then((response) => {
-                this.availableCows = response.data.length
-            })
-            .catch(showError)
-    }
-
-    loadInseminatedCows() {
-        const url = `${ baseApiUrl }/cow/farm/${ store.getters.getFarm }?situation=Inseminated`
-        axios.get(url)
-            .then((response) => {
-                this.inseminatedCows = response.data.length
-            })
-            .catch(showError)
-    }
-
-    loadAllChildbirth() {
-        const url = `${ baseApiUrl }/childbirth/farm/${ store.getters.getFarm }`
-        axios.get(url)
-            .then((response) => {
-                this.allChildbirth = response.data.length
+                this.totalCows = response.data.total_cows
+                this.availableCows = response.data.cows_available
+                this.inseminatedCows = response.data.number_of_inseminations
+                this.allChildbirth = response.data.number_of_childbirths
             })
             .catch(showError)
     }
@@ -89,9 +75,7 @@ export default class GeralView extends Vue {
 
     mounted() {
         this.loadAllCows()
-        this.loadAvailableCows()
-        this.loadInseminatedCows()
-        this.loadAllChildbirth()
+        this.loadStats()
     }
 
 }

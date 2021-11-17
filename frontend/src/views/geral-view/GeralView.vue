@@ -6,7 +6,7 @@
         <div class="row">
             <Card 
                 :title="'Total de Vacas'"
-                :value="cows.length"
+                :value="totalCows"
             />
             <Card 
                 :title="'Vacas Inseminadas'"
