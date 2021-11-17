@@ -8,6 +8,7 @@ import CowRegister from './cow-register/CowRegister.vue'
 import InseminationRegister from './insemination-register/InseminationRegister.vue'
 import PathNotFound from './path-not-found/PathNotFound.vue'
 import FarmSelector from './farm-selector/FarmSelector.vue'
+import ControlView from './control-view/ControlView.vue'
 
 export { 
     Home, 
@@ -19,5 +20,6 @@ export {
     CowRegister,
     InseminationRegister,
     PathNotFound,
-    FarmSelector
+    FarmSelector,
+    ControlView
 }
