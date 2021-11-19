@@ -17,7 +17,8 @@ export default class SelectBox extends Vue {
                 option.addEventListener("click", () => {
                     selected.innerHTML = option.querySelector("label").innerHTML;
                     optionsContainer.classList.remove("active");
-                    this.$emit('update:modelValue', option.textContent)
+                    const value = option.querySelector("input").value
+                    this.$emit('update:modelValue', value)
                 });
             });
         } else {

@@ -6,8 +6,8 @@
         <div class="select-box">
             <div class="options-container" :id="id">
                 <div class="option" :id="id" v-for="option in options" :key="option">
-                    <input type="radio" class="radio">
-                    <label :value="modelValue">{{ option.value }}</label>
+                    <input type="radio" class="radio" :value="option.id">
+                    <label>{{ option.value }}</label>
                 </div>
             </div>
         </div>
