@@ -11,6 +11,7 @@
                     :id="farm.idt_farm"
                 />
             </div>
+            <div class="add-button" @click="addFarm()"> + </div>
         </div>
     </div>
 </template>

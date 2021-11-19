@@ -1,10 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import '@/assets/sass/Mixins.scss';
+@import '@/assets/sass/Colors.scss';
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
+}
+
+.add-button {
+    @include align-center;
+
+    height: 70px;
+    width: 70px;
+
+    font-size: 60px;
+    color: $white;
+    background-color: $secondary;
+
+    border-radius: 50px;
+    border: 5px solid $secondary;
+
+    &:hover {
+        background-color: $secondary-hover;
+        border-color: $secondary-hover;
+        cursor: pointer;
+    }
 }
 
 .farm-selector-view::before{
@@ -14,7 +36,7 @@
     width: 100%;
     left: 0;
     top: 0;
-    background: #00c5bc;
+    background: $primary;
     clip-path: polygon(86% 0, 100% 0, 100% 100%, 40% 100%);
 }
 .title{
@@ -23,7 +45,7 @@
     font-size: 30px;
     padding-top: 5vh;
     max-height: 100vh;
-    color: #322a45;
+    color: $secondary;
     
 }
 

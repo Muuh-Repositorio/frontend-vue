@@ -21,6 +21,10 @@ export default class FarmSelector extends Vue {
             .catch(showError)
     }
 
+    addFarm() {
+        this.$router.push({ path: "farmRegister" })
+    }
+
     mounted() {
         this.loadFarms()
     }
