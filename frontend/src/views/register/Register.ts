@@ -20,6 +20,7 @@ export default class Register extends Vue {
         axios.post(url, this.user)
              .then(() => {
                 success()
+                this.$router.push({ path: "/login" })
                 this.resetFields()
              })
              .catch(showError)
