@@ -26,6 +26,7 @@ export default class FarmRegister extends Vue {
         axios.post(url, this.farm)
             .then(() => {
                 success()
+                this.$router.push({ path: "/farms" })
                 this.resetFields()
             })
             .catch(showError)

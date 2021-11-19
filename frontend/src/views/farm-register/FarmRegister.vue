@@ -17,11 +17,11 @@
                         :label="'Insira o nome da propriedade'"
                         v-model="farm.name"
                     />
-                    <SelectBox
+                    <!-- <SelectBox
                         :title="'Qual o tipo de Gado'"
                         :options='options'
                         v-model="farm.type"
-                    />
+                    /> -->
                     <Button
                         :value="'Cadastrar Fazenda'"
                         @click="register()"
