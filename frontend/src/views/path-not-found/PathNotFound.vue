@@ -1,6 +1,8 @@
 <template>
     <div class="path-not-found-view">
-        <img src="@/assets/images/404.gif">
+        <router-link to="/">
+            <img src="@/assets/images/404.gif">
+        </router-link>
     </div>
 </template>
 
