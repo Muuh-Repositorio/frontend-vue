@@ -12,53 +12,96 @@ import { Input, SelectBox, Button, ImageBox } from '../../components'
 export default class CowRegister extends Vue {
     showInitialInfo = true
     showMoreInfo = false
-    weightOrAgeIsValid = false
+    weightOrAgeIsValid: any = false
     alreadyGaveBirth = 'Não'
     alreadyInseminated = 'Não'
+
+    insemination_data: any = {}
+    childbirth_data: any = {}
     
     cow: any = {
         idt_farm: store.getters.getFarm
     }
 
-    options: any = [ // Conteudo Temporario
-        { id: 'Gir', value: 'Raça Gir'},
-        { id: 'Girolando', value: 'Raça Girolando'},
-        { id: 'Guzerá', value: 'Raça Guzerá'},
-        { id: 'Holandesa', value: 'Raça Holandesa'},
-        { id: 'Jersey', value: 'Raça Jersey'},
-        { id: 'Pardo', value: 'Raça Pardo Suiço'},
-        { id: 'Sindi', value: 'Raça Sindi'},
-    ]
+    options: any = []
     
     trueOrFalse: any = [
         { id: true, value: "Sim" },
         { id: false, value: "Não" },
     ]
 
-    register(): void {
-        // Temporario ----------
-        this.cow.idt_type = 0
-        this.cow.idt_farm = 13
-        // this.cow.idt_situation = 1
-        // --------------------
+    loadTypes() {
+        const url = `${ baseApiUrl }/cowTypes`
+        axios.get(url)
+            .then((response) => {
+                for (const type of response.data) {
+                    this.options.push({
+                        id: type.idt_type,
+                        value: type.type
+                    })
+                }
+            })
+            .catch(showError)
+    }
 
+    register(): void {
         const url = `${ baseApiUrl }/cow`
         axios.post(url, this.cow)
-            .then(() => {
+            .then((response) => {
                 success()
+                if (this.showMoreInfo) {
+                    this.registerInsemination(response.data.idt_cow)
+                    this.registerChildbirth(response.data.idt_cow)
+                }
                 this.resetFields()
             })
             .catch(showError)
     }
 
-    continue_(): void {
-        // Validar peso e idade com o backend
-        this.weightOrAgeIsValid = true
+    registerInsemination(idt_cow: number) {
+        if (this.insemination_data.insemination_date) {
+            this.insemination_data.idt_cow = idt_cow
+
+            const url = `${ baseApiUrl }/insemination`
+            axios.post(url, this.insemination_data)
+                .then((response) => {
+                    success()
+                })
+                .catch(showError)
+        }
+    }
+
+    registerChildbirth(idt_cow: number) {
+        if (this.childbirth_data.childbirth_date) {
+            this.childbirth_data.idt_cow = idt_cow
+
+            const url = `${ baseApiUrl }/childbirth`
+            axios.post(url, this.childbirth_data)
+                .then((response) => {
+                    success()
+                })
+                .catch(showError)
+        }
+    }
+
+    async continue_() {
+        const url = `${ baseApiUrl }/cow/validate`
+        const cow = {
+            weight: this.cow.weight,
+            birth_date: this.cow.birth_date,
+            idt_type: this.cow.idt_type
+        }
+
+        await axios.post(url, cow)
+                .then((response) => {
+                    this.weightOrAgeIsValid = response.data
+                })
+                .catch(showError)
+
         if (this.weightOrAgeIsValid) {
             this.showMoreInfo = true
             this.showInitialInfo = false
         } else {
-            this.cow.idt_situation = 0
             this.register()
         }
     }
@@ -66,9 +109,16 @@ export default class CowRegister extends Vue {
     return_(): void {
         this.showMoreInfo = false
         this.showInitialInfo = true
+        this.weightOrAgeIsValid = false
     }
 
     resetFields(): void {
-        this.cow = {}
+        this.cow = { idt_farm: store.getters.getFarm }
+        this.insemination_data = {}
+        this.return_()
+    }
+
+    mounted() {
+        this.loadTypes()
     }
 }

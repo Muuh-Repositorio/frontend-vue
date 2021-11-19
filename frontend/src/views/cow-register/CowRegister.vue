@@ -49,8 +49,8 @@
                         <Input
                             :type="'date'"
                             :label="'Insira a data do último parto'"
-                            v-model="cow.lastBirth"
-                            v-show="alreadyGaveBirth === 'Sim'"
+                            v-model="childbirth_data.childbirth_date"
+                            v-show="alreadyGaveBirth === 'true'"
                         />
                         <SelectBox
                             :title="'Já está inseminada?'"
@@ -61,8 +61,8 @@
                         <Input
                             :type="'date'"
                             :label="'Insira a data de inseminação'"
-                            v-model="cow.lastBirth"
-                            v-show="alreadyInseminated === 'Sim'"
+                            v-model="insemination_data.insemination_date"
+                            v-show="alreadyInseminated === 'true'"
                         />
                    </div>
                    <Button
