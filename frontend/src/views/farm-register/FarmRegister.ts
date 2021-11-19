@@ -20,7 +20,7 @@ export default class FarmRegister extends Vue {
     ]
 
     register(): void {
-        delete this.farm.type // Temporario
+        // delete this.farm.type // Temporario
         
         const url = `${ baseApiUrl }/farm`
         axios.post(url, this.farm)
