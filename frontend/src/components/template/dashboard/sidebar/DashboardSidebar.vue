@@ -48,13 +48,6 @@
                         </a>
                     </router-link>
                 </li>
-                <li class="nav-item">
-                    <router-link to="/inseminationRegister">
-                        <a class="nav-link">
-                            <span>Cadastrar Inseminação</span>
-                        </a>
-                    </router-link>
-                </li>
             </div>
 
             <hr class="sidebar-divider d-none d-md-block">
