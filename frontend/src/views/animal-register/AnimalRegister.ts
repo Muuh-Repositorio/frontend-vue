@@ -18,6 +18,7 @@ export default class AnimalRegister extends Vue {
 
     insemination_data: any = {}
     childbirth_data: any = {}
+    insemination_type: any = {}
     
     animal: any = {
         idt_farm: store.getters.getFarm
@@ -33,6 +34,11 @@ export default class AnimalRegister extends Vue {
     genders: any = [
         { id: 'M', value: 'Macho'},
         { id: 'F', value: 'Fêmea'},
+    ]
+
+    insemination_types = [
+        { id: 'bull', value: "Touro" },
+        { id: 'semen', value: "Sêmen" },
     ]
 
     loadTypes() {
@@ -64,6 +70,12 @@ export default class AnimalRegister extends Vue {
     }
 
     registerInsemination(idt_cow: number) {
+        if (this.insemination_type === 'bull' && this.animal.idt_semen) {
+            delete this.animal.idt_semen
+        } else if (this.insemination_type === 'semen' && this.animal.idt_bull) {
+            delete this.animal.idt_bull
+        }
+
         if (this.insemination_data.insemination_date) {
             this.insemination_data.idt_cow = idt_cow
 
@@ -77,7 +89,7 @@ export default class AnimalRegister extends Vue {
     }
 
     registerChildbirth(idt_cow: number) {
-        if (this.childbirth_data.childbirth_date) {
+        if (this.childbirth_data.childbirth_date && this.alreadyGaveBirth) {
             this.childbirth_data.idt_cow = idt_cow
 
             const url = `${ baseApiUrl }/childbirth`

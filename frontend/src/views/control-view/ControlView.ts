@@ -1,3 +1,4 @@
+import { success } from "@/config/toasted";
 import { baseApiUrl, showError } from "@/global";
 import store from "@/store";
 import axios from "axios";
@@ -80,6 +81,17 @@ export default class ControlView extends Vue {
         if (data.items.length) {
             store.dispatch('setData', data.items)
             this.$router.push({ path: path })
+        }
+    }
+
+    updateCowSituation(cows: any[]) {
+        for (const cow of cows) {
+            const url = `${ baseApiUrl }/cow/${ cow.idt_cow }`
+            axios.put(url, { situation: 3 })
+                .then(() => {
+                    success()
+                })
+                .catch(showError)
         }
     }
 

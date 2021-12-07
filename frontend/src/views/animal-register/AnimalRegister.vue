@@ -70,6 +70,25 @@
                             v-model="insemination_data.insemination_date"
                             v-show="alreadyInseminated === 'true'"
                         />
+                        <SelectBox
+                            :title="'Tipo de inseminação'"
+                            :options="insemination_types"
+                            :id="'insemination_types'"
+                            v-model="insemination_type"
+                            v-show="alreadyInseminated === 'true'"
+                        />
+                        <Input
+                            :type="'number'"
+                            :label="'Insira o id do touro'"
+                            v-model="insemination_data.idt_bull"
+                            v-show="alreadyInseminated === 'true' && insemination_type === 'bull'"
+                        />
+                        <Input
+                            :type="'number'"
+                            :label="'Insira o id do sêmen'"
+                            v-model="insemination_data.idt_semen"
+                            v-show="alreadyInseminated === 'true' && insemination_type === 'semen'"
+                        />
                    </div>
                    <Button
                         :value="'Cadastrar'"

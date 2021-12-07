@@ -10,7 +10,7 @@ import { Input, ImageBox, Button, SelectBox } from '../../components'
     components: { Input, ImageBox, Button, SelectBox }
 })
 export default class InseminationRegister extends Vue {
-    cow = {}
+    cow: any = {}
     cows = store.getters.getData
 
     inseminationType = null
@@ -21,6 +21,12 @@ export default class InseminationRegister extends Vue {
     ]
 
     register(): void {
+        if (this.inseminationType === 'bull' && this.cow.idt_semen) {
+            delete this.cow.idt_semen
+        } else if (this.inseminationType === 'semen' && this.cow.idt_bull) {
+            delete this.cow.idt_bull
+        }
+
         const url = `${ baseApiUrl }/insemination`
         axios.post(url, this.cow)
             .then(() => {
@@ -32,7 +38,7 @@ export default class InseminationRegister extends Vue {
 
     resetFields(): void {
         this.cows = this.cows.splice(1, this.cows.length)
-        this.cow = this.cows[0]
+        this.cow = this.cows.length > 0 ? this.cows[0] : {}
     }
 
     mounted() {

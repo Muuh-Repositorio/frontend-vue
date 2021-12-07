@@ -26,12 +26,9 @@ export default class Home extends Vue {
     aboutAnimation(): void {
         const titleLine: any = document.getElementById('title-line');
         const height = window.innerHeight;
-        console.log(height)
         window.addEventListener('scroll' , ()=>{
             const offset = parseFloat(window.pageYOffset.toFixed(2));
-            console.log(offset)
             if(offset + 0.4 === height){
-                console.log('ok');
                 titleLine.style.display = 'block';
             }
         })
