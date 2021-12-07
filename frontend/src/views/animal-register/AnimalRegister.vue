@@ -59,6 +59,13 @@
                             v-show="alreadyGaveBirth === 'true'"
                         />
                         <SelectBox
+                            :title="'Sexo da Novilha'"
+                            :options="genders"
+                            v-model="childbirth_data.heifer_gender"
+                            v-show="alreadyGaveBirth === 'true'"
+                            :id="'gender-heifer'"
+                        />
+                        <SelectBox
                             :title="'Já está inseminada?'"
                             :options="trueOrFalse"
                             :id="'alreadyInseminated'"
