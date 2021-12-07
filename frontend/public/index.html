@@ -25,4 +25,15 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script src="./assets/vanilla-tilt.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 25,
+            speed: 400
+    });
+    VanillaTilt.init(document.querySelector(".caixa"), {
+        max: 25,
+        speed: 400
+    });
+  </script>
 </html>

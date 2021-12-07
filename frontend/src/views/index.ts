@@ -4,7 +4,7 @@ import Register from './register/Register.vue'
 import FarmRegister from './farm-register/FarmRegister.vue'
 import Dashboard from './dashboard/Dashboard.vue'
 import GeralView from './geral-view/GeralView.vue'
-import CowRegister from './cow-register/CowRegister.vue'
+import AnimalRegister from './animal-register/AnimalRegister.vue'
 import InseminationRegister from './insemination-register/InseminationRegister.vue'
 import PathNotFound from './path-not-found/PathNotFound.vue'
 import FarmSelector from './farm-selector/FarmSelector.vue'
@@ -17,7 +17,7 @@ export {
     FarmRegister,
     Dashboard,
     GeralView,
-    CowRegister,
+    AnimalRegister,
     InseminationRegister,
     PathNotFound,
     FarmSelector,

@@ -6,7 +6,7 @@
                 class="btn-disabled" 
                 id="btn-actions" 
                 type="submit"
-                @click="teste()"
+                @click="selectAction()"
                 v-show="selectBox && filterSelected"
             > 
                 {{ buttonText }}

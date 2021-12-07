@@ -92,9 +92,8 @@ export default class Table extends Vue {
         }
     }
 
-    teste() {
-        // store.dispatch('setItems', this.itemsSelected)
-        // this.$router.push({ path: '/inseminationRegister'})
+    selectAction() {
+        this.$emit('action', { action: this.filterSelected, items: this.itemsSelected })
     }
 
     mounted() {

@@ -6,7 +6,7 @@ import {
 	FarmRegister, 
 	Dashboard, 
 	GeralView,
-	CowRegister,
+	AnimalRegister,
 	InseminationRegister,
 	PathNotFound,
 	FarmSelector,
@@ -55,9 +55,9 @@ const routes: Array<RouteRecordRaw> = [
 		]
 	},
 	{
-		name: "Registrar Vaca",
-		path: "/cowRegister",
-		components: { mainContent: CowRegister },
+		name: "Registrar Rebanho",
+		path: "/animalRegister",
+		components: { mainContent: AnimalRegister },
 		meta: { requiresLogin: true, requiresFarm: true }
 	},
 	{

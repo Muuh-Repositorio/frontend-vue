@@ -29,6 +29,7 @@
             :filterTitle="'Vacas aptas para'"
             :filterValues="filterValues"
             @filter="selectCows"
+            @action="selectAction"
         />
     </div>
 </template>

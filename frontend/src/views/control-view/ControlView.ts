@@ -3,6 +3,7 @@ import store from "@/store";
 import axios from "axios";
 import { Options, Vue } from "vue-class-component";
 import { PageTitle, Card, Table } from '../../components'
+import { AbleFor, paths } from './Paths.enum'
 
 @Options({
     name: "ControlView",
@@ -70,6 +71,15 @@ export default class ControlView extends Vue {
                 .catch(showError)
         } else {
             this.cows = []
+        }
+    }
+
+    selectAction(data: any) {
+        const case_: AbleFor = data.action
+        const path = paths.getPaths(case_)
+        if (data.items.length) {
+            store.dispatch('setData', data.items)
+            this.$router.push({ path: path })
         }
     }
 

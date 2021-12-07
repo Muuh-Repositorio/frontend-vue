@@ -5,7 +5,7 @@
         />
         <div class="row">
             <Card 
-                :title="'Total de Vacas'"
+                :title="'Rebanho'"
                 :value="totalCows"
             />
             <Card 
@@ -13,7 +13,7 @@
                 :value="inseminatedCows"
             />
             <Card 
-                :title="'Vacas Disponíveis'"
+                :title="'Aptas para Secagem'"
                 :value="availableCows"
             />
             <Card 
