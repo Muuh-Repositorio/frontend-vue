@@ -75,24 +75,30 @@ export default class ControlView extends Vue {
         }
     }
 
-    selectAction(data: any) {
-        const case_: AbleFor = data.action
-        const path = paths.getPaths(case_)
-        if (data.items.length) {
-            store.dispatch('setData', data.items)
-            this.$router.push({ path: path })
+    async selectAction(data: any) {
+        console.log(data.action)
+        if (data.action !== 'Drying') {
+            const case_: AbleFor = data.action
+            const path = paths.getPaths(case_)
+            if (data.items.length) {
+                store.dispatch('setData', data.items)
+                this.$router.push({ path: path })
+            }
+        } else {
+            await this.dryCow(data.items)
         }
     }
 
-    updateCowSituation(cows: any[]) {
+    async dryCow(cows: any[]) {
         for (const cow of cows) {
             const url = `${ baseApiUrl }/cow/${ cow.idt_cow }`
-            axios.put(url, { situation: 3 })
+            await axios.put(url, { situation: 5 })
                 .then(() => {
                     success()
                 })
                 .catch(showError)
         }
+        location.reload()
     }
 
     mounted() {
