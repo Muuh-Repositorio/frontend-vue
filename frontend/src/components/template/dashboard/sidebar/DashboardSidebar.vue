@@ -48,6 +48,13 @@
                         </a>
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/semenRegister">
+                        <a class="nav-link">
+                            <span>Cadastrar Sêmen</span>
+                        </a>
+                    </router-link>
+                </li>
             </div>
 
             <hr class="sidebar-divider d-none d-md-block">

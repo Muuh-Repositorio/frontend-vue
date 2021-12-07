@@ -9,6 +9,7 @@ import InseminationRegister from './insemination-register/InseminationRegister.v
 import PathNotFound from './path-not-found/PathNotFound.vue'
 import FarmSelector from './farm-selector/FarmSelector.vue'
 import ControlView from './control-view/ControlView.vue'
+import SemenRegister from './semen-register/SemenRegister.vue'
 
 export { 
     Home, 
@@ -21,5 +22,6 @@ export {
     InseminationRegister,
     PathNotFound,
     FarmSelector,
-    ControlView
+    ControlView,
+    SemenRegister
 }
