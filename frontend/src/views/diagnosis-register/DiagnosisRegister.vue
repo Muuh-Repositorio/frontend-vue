@@ -9,16 +9,16 @@
                     <Input 
                         :type="'number'"
                         :label="'Número de Identificação da Vaca'"
-                        v-model="data_.idt_cow"
+                        v-model="cow.idt_cow"
                     />
                     <SelectBox
                         :title="'Diagnóstico'"
                         :options="options"
-                        v-model="data_.diagnosis"
+                        v-model="cow.diagnosis"
                         :id="'diagnosis'"
                     />
                     <Button
-                        :value="'Cadastrar Inseminação'"
+                        :value="'Cadastrar Diagnóstico'"
                         @click="register()"
                     />
                     <div class="link2">

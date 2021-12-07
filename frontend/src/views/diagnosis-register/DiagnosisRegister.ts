@@ -3,11 +3,11 @@ import { baseApiUrl, showError } from "@/global";
 import store from "@/store";
 import axios from "axios";
 import { Options, Vue } from "vue-class-component";
-import { ImageBox, Button, SelectBox } from '../../components'
+import { ImageBox, Button, SelectBox, Input } from '../../components'
 
 @Options({
     name: "DiagnosisRegister",
-    components: { ImageBox, Button, SelectBox }
+    components: { ImageBox, Button, SelectBox, Input }
 })
 export default class DiagnosisRegister extends Vue {
     cow: any = {}
@@ -19,15 +19,16 @@ export default class DiagnosisRegister extends Vue {
     ]
 
     register(): void {
-        const url = `${ baseApiUrl }/insemination`
+        const url = `${ baseApiUrl }/insemination/${ this.cow.idt_insemination }`
         axios.put(url, this.cow)
             .then(() => {
-                if (this.cow.diagnosis) {
+                if (this.cow.diagnosis === 'true') {
                     this.updateCowSituation(4)
                 } else {
                     this.updateCowSituation(2)
                 }
                 success()
+                this.resetFields()
             })
             .catch(showError)
     }
@@ -36,8 +37,18 @@ export default class DiagnosisRegister extends Vue {
         const url = `${ baseApiUrl }/cow/${ this.cow.idt_cow }`
         axios.put(url, { situation: situation})
             .then(() => {
-                success()
             })
             .catch(showError)
+    }
+
+    resetFields(): void {
+        this.cows = this.cows.splice(1, this.cows.length)
+        this.cow = this.cows.length > 0 ? this.cows[0] : {}
+    }
+
+    mounted() {
+        if (this.cows.length > 0) {
+            this.cow = this.cows[0]
+        }
     }
 }
