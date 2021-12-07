@@ -11,7 +11,8 @@ import {
 	PathNotFound,
 	FarmSelector,
 	ControlView,
-	SemenRegister
+	SemenRegister,
+	ChildbirthRegister
 } from '../views'
 import { validations } from './Validations'
 
@@ -71,6 +72,12 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Registrar Sêmen",
 		path: "/semenRegister",
 		components: { mainContent: SemenRegister },
+		meta: { requiresLogin: true, requiresFarm: true }
+	},
+	{
+		name: "Registrar Parto",
+		path: "/childbirthRegister",
+		components: { mainContent: ChildbirthRegister },
 		meta: { requiresLogin: true, requiresFarm: true }
 	},
 	{	
