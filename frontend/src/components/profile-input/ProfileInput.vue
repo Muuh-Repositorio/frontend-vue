@@ -1,7 +1,7 @@
 <template>
     <div class="input-profile-component">
         <label for="inputNome">{{ label }}</label>
-        <input type="text" class="form-control" id="inputNome" :disabled="disabled">
+        <input type="text" class="form-control" id="inputNome" v-model="value" :disabled="disabled">
     </div>
 </template>
 
