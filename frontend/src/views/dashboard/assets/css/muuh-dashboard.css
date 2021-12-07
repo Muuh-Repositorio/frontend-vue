@@ -9946,7 +9946,7 @@ a:focus {
 
 .bg-gradient-muuh{
   background-color: #00c5bc;
-  background-image: linear-gradient(180deg, #5a5c69 10%, #00c5bc 100%);
+  background-image: linear-gradient(180deg, #1c7684 10%, #00c5bc 100%);
   background-size: cover;
 }
 
@@ -10482,6 +10482,16 @@ a:focus {
 
 .sidebar #sidebarToggle:focus {
   outline: none;
+}
+
+.sidebar{
+  transition: .5s;
+}
+
+.sidebar-brand-icon img{
+  border-radius: 50px;
+  padding: 7px;
+  background-color: rgba(255,255,255,.25);;
 }
 
 .sidebar.toggled {

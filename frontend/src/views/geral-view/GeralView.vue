@@ -13,7 +13,7 @@
                 :value="inseminatedCows"
             />
             <Card 
-                :title="'Aptas para Secagem'"
+                :title="'Aptas para Inseminação'"
                 :value="availableCows"
             />
             <Card 
@@ -29,6 +29,7 @@
             :filterTitle="'Mostrar vacas'"
             :filterValues="filterValues"
             @filter="filterData"
+            :genderFilter="true"
             @gender="filterGender"
         />
     </div>
