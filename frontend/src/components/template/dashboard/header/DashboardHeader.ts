@@ -7,6 +7,7 @@ import store from "@/store";
 })
 export default class DashboardHeader extends Vue {
     user = store.getters.getUser
+    cowParam = ''
 
     showMenu(): void {
         const menu = document.querySelector('.dropdown-menu.dropdown-menu-right.shadow.animated--grow-in')
@@ -15,6 +16,10 @@ export default class DashboardHeader extends Vue {
         } else {
             menu?.classList.remove('show')
         }
+    }
+
+    searchCow() {
+        this.$router.push({ path: '/profile', query: { param: this.cowParam }})
     }
 
     logout(): void {
