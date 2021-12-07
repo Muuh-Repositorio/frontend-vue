@@ -5,6 +5,11 @@
     padding-bottom: 10px;
 }
 
+.gender-filter {
+    display: flex;
+    justify-content: right;
+}
+
 @media screen and (max-width: 553px) {
     .filters {
         display: block;

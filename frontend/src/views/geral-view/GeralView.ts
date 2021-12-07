@@ -15,9 +15,10 @@ export default class GeralView extends Vue {
         { value: 'weight', text: "Peso"},
         { value: 'birth_date', text: "Data de Nascimento"},
         { value: 'type', text: "Raça"},
-        { value: 'lastbirth', text: "Último Parto"},
-        { value: 'lastinsemination', text: "Última Inseminação"},
-        { value: 'diagnosis', text: "Diagnóstico"},
+        { value: 'gender', text: "Sexo"}
+        // { value: 'lastbirth', text: "Último Parto"},
+        // { value: 'lastinsemination', text: "Última Inseminação"},
+        // { value: 'diagnosis', text: "Diagnóstico"},
     ]
 
     filterValues = [
@@ -32,6 +33,14 @@ export default class GeralView extends Vue {
         { value: 'Morta', text: 'Mortas' }
     ]
 
+    genders: any = [
+        { value: null, text: 'Tudo'},
+        { value: 'M', text: 'Macho'},
+        { value: 'F', text: 'Fêmea'},
+    ]
+
+    dataFiltered: any = []
+
     cows = []
     totalCows = 0
     availableCows = 0
@@ -43,6 +52,7 @@ export default class GeralView extends Vue {
         axios.get(url)
              .then((response) => {
                 this.cows = response.data
+                this.dataFiltered = this.cows
              })
              .catch(showError)
     }
@@ -65,9 +75,24 @@ export default class GeralView extends Vue {
             console.log(url)
             axios.get(url)
                 .then((response) => {
-                    this.cows = response.data
+                    this.dataFiltered = response.data
+                    this.filterGender('F', this.dataFiltered)
                 })
                 .catch(showError)
+        } else {
+            this.loadAllCows()
+        }
+    }
+
+    filterGender(value: any, data: any = null) {
+        data = data === null ? this.cows : data
+
+        if (value !== null) {
+            this.dataFiltered = data.filter((animal: any) => {
+                if (animal.gender === value) {
+                    return animal
+                }
+            })
         } else {
             this.loadAllCows()
         }

@@ -23,12 +23,14 @@
         </div>
         <Table 
             :title="'Visão Geral'"
-            :data="cows"
+            :data="dataFiltered"
             :fields="fields"
             :selectBox="false"
             :filterTitle="'Mostrar vacas'"
             :filterValues="filterValues"
+            :genders="genders"
             @filter="filterData"
+            @gender="filterGender"
         />
     </div>
 </template>
