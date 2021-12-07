@@ -12,7 +12,8 @@ import {
 	FarmSelector,
 	ControlView,
 	SemenRegister,
-	ChildbirthRegister
+	ChildbirthRegister,
+	DiagnosisRegister
 } from '../views'
 import { validations } from './Validations'
 
@@ -78,6 +79,12 @@ const routes: Array<RouteRecordRaw> = [
 		name: "Registrar Parto",
 		path: "/childbirthRegister",
 		components: { mainContent: ChildbirthRegister },
+		meta: { requiresLogin: true, requiresFarm: true }
+	},
+	{
+		name: "Registrar Diagnóstico",
+		path: "/diagnosisRegister",
+		components: { mainContent: DiagnosisRegister },
 		meta: { requiresLogin: true, requiresFarm: true }
 	},
 	{	

@@ -11,6 +11,7 @@ import FarmSelector from './farm-selector/FarmSelector.vue'
 import ControlView from './control-view/ControlView.vue'
 import SemenRegister from './semen-register/SemenRegister.vue'
 import ChildbirthRegister from './childbirth-register/ChildbirthRegister.vue'
+import DiagnosisRegister from './diagnosis-register/DiagnosisRegister.vue'
 
 export { 
     Home, 
@@ -25,5 +26,6 @@ export {
     FarmSelector,
     ControlView,
     SemenRegister,
-    ChildbirthRegister
+    ChildbirthRegister,
+    DiagnosisRegister
 }
