@@ -13,7 +13,8 @@ import {
 	ControlView,
 	SemenRegister,
 	ChildbirthRegister,
-	DiagnosisRegister
+	DiagnosisRegister,
+	Profile
 } from '../views'
 import { validations } from './Validations'
 
@@ -54,6 +55,11 @@ const routes: Array<RouteRecordRaw> = [
 				name: "Controle",
 				path: "/dashboard/control",
 				components: { dashboardContent: ControlView }
+			},
+			{
+				name: "Perfil",
+				path: "/profile",
+				components: { dashboardContent: Profile }
 			}
 		]
 	},

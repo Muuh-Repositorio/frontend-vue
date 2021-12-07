@@ -7,18 +7,22 @@
             <Card 
                 :title="'Rebanho'"
                 :value="totalCows"
+                :width="'3'"
             />
             <Card 
                 :title="'Vacas Inseminadas'"
                 :value="inseminatedCows"
+                :width="'3'"
             />
             <Card 
                 :title="'Aptas para Inseminação'"
                 :value="availableCows"
+                :width="'3'"
             />
             <Card 
                 :title="'Total de Partos'"
                 :value="allChildbirth"
+                :width="'3'"
             />
         </div>
         <Table 

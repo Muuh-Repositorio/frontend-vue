@@ -12,6 +12,7 @@ import ControlView from './control-view/ControlView.vue'
 import SemenRegister from './semen-register/SemenRegister.vue'
 import ChildbirthRegister from './childbirth-register/ChildbirthRegister.vue'
 import DiagnosisRegister from './diagnosis-register/DiagnosisRegister.vue'
+import Profile from './profile/Profile.vue'
 
 export { 
     Home, 
@@ -27,5 +28,6 @@ export {
     ControlView,
     SemenRegister,
     ChildbirthRegister,
-    DiagnosisRegister
+    DiagnosisRegister,
+    Profile
 }
