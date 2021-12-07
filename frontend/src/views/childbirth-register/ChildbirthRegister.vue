@@ -9,17 +9,17 @@
                     <Input 
                         :type="'number'"
                         :label="'Número de Identificação da Vaca'"
-                        v-model="data_.idt_cow"
+                        v-model="cow.idt_cow"
                     />
                     <Input 
                         :type="'date'"
                         :label="'Data do parto'"
-                        v-model="data_.childbirth_date"
+                        v-model="cow.childbirth_date"
                     />
                     <SelectBox
                         :title="'Sexo da novilha'"
                         :options="genders"
-                        v-model="data_.heifer_gender"
+                        v-model="cow.heifer_gender"
                         :id="'gender-heifer'"
                     />
                     <Button
