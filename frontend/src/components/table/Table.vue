@@ -20,6 +20,7 @@
                         :values="genders"
                         v-model="gender"
                         @change="selectGender()"
+                        v-show="genderFilter"
                     />
                 </div>
                 <div class="filters">
@@ -33,7 +34,7 @@
                         :values="filterValues"
                         v-model="filterSelected"
                         @change="selectFilter()"
-                        v-show="gender === 'F'"
+                        v-show="gender === 'F' || !genderFilter"
                     />
                 </div>
 

@@ -28,7 +28,6 @@
             :selectBox="false"
             :filterTitle="'Mostrar vacas'"
             :filterValues="filterValues"
-            :genders="genders"
             @filter="filterData"
             @gender="filterGender"
         />

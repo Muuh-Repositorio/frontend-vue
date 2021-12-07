@@ -5,7 +5,7 @@ import { TablePagination, TableSelect, TableFilter } from './components'
 
 @Options({
     name: "Table",
-    props: ['data', 'fields', 'title', 'selectBox', 'filterTitle', 'filterValues', 'genders', 'filters'],
+    props: ['data', 'fields', 'title', 'selectBox', 'filterTitle', 'filterValues', 'genderFilter'],
     components: { TablePagination, TableSelect, TableFilter }
 })
 export default class Table extends Vue {
@@ -22,6 +22,12 @@ export default class Table extends Vue {
 
     itemsSelected: any = []
     buttonText = ''
+
+    genders: any = [
+        { value: null, text: 'Tudo'},
+        { value: 'M', text: 'Macho'},
+        { value: 'F', text: 'Fêmea'},
+    ]
 
     dataFilter = (start: number, end: number) => computed(() => {
         return this.props.data.slice(start, end)

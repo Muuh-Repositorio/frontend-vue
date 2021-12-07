@@ -33,12 +33,6 @@ export default class GeralView extends Vue {
         { value: 'Morta', text: 'Mortas' }
     ]
 
-    genders: any = [
-        { value: null, text: 'Tudo'},
-        { value: 'M', text: 'Macho'},
-        { value: 'F', text: 'Fêmea'},
-    ]
-
     dataFiltered: any = []
 
     cows = []
