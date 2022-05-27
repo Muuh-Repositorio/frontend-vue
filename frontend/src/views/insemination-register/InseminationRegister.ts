@@ -21,10 +21,17 @@ export default class InseminationRegister extends Vue {
     ]
 
     register(): void {
-        if (this.inseminationType === 'bull' && this.cow.idt_semen) {
-            delete this.cow.idt_semen
-        } else if (this.inseminationType === 'semen' && this.cow.idt_bull) {
-            delete this.cow.idt_bull
+        const cow_: any = {
+            idt_cow: this.cow.idt_cow,
+            insemination_date: this.cow.insemination_date,
+            idt_semen: this.cow.idt_semen,
+            idt_bull: this.cow.idt_bull
+        }
+        
+        if (this.inseminationType === 'bull') {
+            delete cow_.idt_semen
+        } else if (this.inseminationType === 'semen') {
+            delete cow_.idt_bull 
         }
 
         const url = `${ baseApiUrl }/insemination`
@@ -44,6 +51,7 @@ export default class InseminationRegister extends Vue {
     mounted() {
         if (this.cows.length > 0) {
             this.cow = this.cows[0]
+            console.log(this.cow)
         }
     }
 }
