@@ -16,6 +16,24 @@
                         :label="'Data de Inseminação'"
                         v-model="cow.insemination_date"
                     />
+                    <SelectBox
+                        :title="'Tipo de inseminação'"
+                        :options="insemination_types"
+                        v-model="inseminationType"
+                        :id="'insemination-type'"
+                    />
+                    <Input 
+                        :type="'number'"
+                        :label="'Número de identificação do touro'"
+                        v-model="cow.idt_bull"
+                        v-show="inseminationType === 'bull'"
+                    />
+                    <Input 
+                        :type="'number'"
+                        :label="'Número de identificação do sêmen'"
+                        v-model="cow.idt_semen"
+                        v-show="inseminationType === 'semen'"
+                    />
                     <Button
                         :value="'Cadastrar Inseminação'"
                         @click="register()"

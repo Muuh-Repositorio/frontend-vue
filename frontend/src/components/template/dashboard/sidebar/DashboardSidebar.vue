@@ -23,14 +23,14 @@
                 <li class="nav-item">
                     <router-link to="/dashboard/geral">
                         <a class="nav-link">
-                            <span>Visão Geral</span>
+                            <span>Visão Geral do Rebanho</span>
                         </a>
                     </router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/dashboard/control">
                         <a class="nav-link">
-                            <span>Controle de Gado</span>
+                            <span>Controle de Rebanho</span>
                         </a>
                     </router-link>
                 </li>
@@ -42,9 +42,23 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/cowRegister">
+                    <router-link to="/animalRegister">
                         <a class="nav-link">
-                            <span>Cadastrar Vaca</span>
+                            <span>Cadastrar Animal</span>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/semenRegister">
+                        <a class="nav-link">
+                            <span>Cadastrar Sêmen</span>
+                        </a>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/stock/semen">
+                        <a class="nav-link">
+                            <span>Estoque - Sêmen</span>
                         </a>
                     </router-link>
                 </li>

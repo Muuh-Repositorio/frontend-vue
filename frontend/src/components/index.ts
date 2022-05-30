@@ -11,6 +11,8 @@ import PageTitle from './template/dashboard/page-title/PageTitle.vue'
 import Table from './table/Table.vue'
 import ImageBox from './image-box/ImageBox.vue'
 import FarmCard from './farm-card/FarmCard.vue'
+import ProfileCard from './profile-card/ProfileCard.vue'
+import ProfileInput from './profile-input/ProfileInput.vue'
 
 export  { 
     Content, 
@@ -25,5 +27,7 @@ export  {
     PageTitle,
     Table,
     ImageBox,
-    FarmCard
+    FarmCard,
+    ProfileCard,
+    ProfileInput
 }

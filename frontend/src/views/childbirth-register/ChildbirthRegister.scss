@@ -1,0 +1,42 @@
+@import '@/assets/sass/Mixins.scss';
+@import '@/assets/sass/Colors.scss';
+
+@include card-background-config(".childbirth-register-view");
+@include card-container-config(500px, center);
+
+.conteudo form{
+    width: 80%;
+    /* margin-right: 30px; */
+}
+
+@media (max-width:1000px) {
+    .conteudo .image-box{
+      max-width: 70%;
+    }
+    .conteudo{
+      padding: 10px 0;
+    }
+}
+@media (max-width:900px) {
+    .conteudo .image-box{
+        display: none;
+    }
+    .conteudo form{
+        width: 100%;
+        /* margin-left: 30px;  */
+    }
+}
+.conteudo .link2{
+    text-align: center;
+    color: $secondary;
+
+    & a {
+        text-decoration: none;
+        color: $secondary;
+
+        &:visited {
+            text-decoration: none;
+            color: $secondary;
+        }
+    }
+}

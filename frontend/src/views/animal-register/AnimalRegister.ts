@@ -6,10 +6,10 @@ import { Options, Vue } from "vue-class-component";
 import { Input, SelectBox, Button, ImageBox } from '../../components'
 
 @Options({
-    name: "CowRegister",
+    name: "AnimalRegister",
     components: { Input, SelectBox, Button, ImageBox }
 })
-export default class CowRegister extends Vue {
+export default class AnimalRegister extends Vue {
     showInitialInfo = true
     showMoreInfo = false
     weightOrAgeIsValid: any = false
@@ -18,8 +18,9 @@ export default class CowRegister extends Vue {
 
     insemination_data: any = {}
     childbirth_data: any = {}
+    insemination_type: any = {}
     
-    cow: any = {
+    animal: any = {
         idt_farm: store.getters.getFarm
     }
 
@@ -28,6 +29,16 @@ export default class CowRegister extends Vue {
     trueOrFalse: any = [
         { id: true, value: "Sim" },
         { id: false, value: "Não" },
+    ]
+
+    genders: any = [
+        { id: 'M', value: 'Macho'},
+        { id: 'F', value: 'Fêmea'},
+    ]
+
+    insemination_types = [
+        { id: 'bull', value: "Touro" },
+        { id: 'semen', value: "Sêmen" },
     ]
 
     loadTypes() {
@@ -46,7 +57,7 @@ export default class CowRegister extends Vue {
 
     register(): void {
         const url = `${ baseApiUrl }/cow`
-        axios.post(url, this.cow)
+        axios.post(url, this.animal)
             .then((response) => {
                 success()
                 if (this.showMoreInfo) {
@@ -59,6 +70,12 @@ export default class CowRegister extends Vue {
     }
 
     registerInsemination(idt_cow: number) {
+        if (this.insemination_type === 'bull' && this.animal.idt_semen) {
+            delete this.animal.idt_semen
+        } else if (this.insemination_type === 'semen' && this.animal.idt_bull) {
+            delete this.animal.idt_bull
+        }
+
         if (this.insemination_data.insemination_date) {
             this.insemination_data.idt_cow = idt_cow
 
@@ -72,7 +89,7 @@ export default class CowRegister extends Vue {
     }
 
     registerChildbirth(idt_cow: number) {
-        if (this.childbirth_data.childbirth_date) {
+        if (this.childbirth_data.childbirth_date && this.alreadyGaveBirth) {
             this.childbirth_data.idt_cow = idt_cow
 
             const url = `${ baseApiUrl }/childbirth`
@@ -87,18 +104,20 @@ export default class CowRegister extends Vue {
     async continue_() {
         const url = `${ baseApiUrl }/cow/validate`
         const cow = {
-            weight: this.cow.weight,
-            birth_date: this.cow.birth_date,
-            idt_type: this.cow.idt_type
+            weight: this.animal.weight,
+            birth_date: this.animal.birth_date,
+            idt_type: this.animal.idt_type
         }
 
-        await axios.post(url, cow)
-                .then((response) => {
-                    this.weightOrAgeIsValid = response.data
-                })
-                .catch(showError)
+        if (this.animal.gender === 'F') {
+            await axios.post(url, cow)
+                    .then((response) => {
+                        this.weightOrAgeIsValid = response.data
+                    })
+                    .catch(showError)
+        }
 
-        if (this.weightOrAgeIsValid) {
+        if (this.weightOrAgeIsValid && this.animal.gender === 'F') {
             this.showMoreInfo = true
             this.showInitialInfo = false
         } else {
@@ -113,7 +132,7 @@ export default class CowRegister extends Vue {
     }
 
     resetFields(): void {
-        this.cow = { idt_farm: store.getters.getFarm }
+        this.animal = { idt_farm: store.getters.getFarm }
         this.insemination_data = {}
         this.return_()
     }

@@ -6,11 +6,16 @@ import {
 	FarmRegister, 
 	Dashboard, 
 	GeralView,
-	CowRegister,
+	AnimalRegister,
 	InseminationRegister,
 	PathNotFound,
 	FarmSelector,
-	ControlView
+	ControlView,
+	SemenRegister,
+	ChildbirthRegister,
+	DiagnosisRegister,
+	Profile,
+	SemenStock
 } from '../views'
 import { validations } from './Validations'
 
@@ -51,19 +56,47 @@ const routes: Array<RouteRecordRaw> = [
 				name: "Controle",
 				path: "/dashboard/control",
 				components: { dashboardContent: ControlView }
+			},
+			{
+				name: "Perfil",
+				path: "/profile",
+				components: { dashboardContent: Profile }
+			},
+			{
+				name: "Estoque - Sêmen",
+				path: "/stock/semen",
+				components: { dashboardContent: SemenStock }
 			}
 		]
 	},
 	{
-		name: "Registrar Vaca",
-		path: "/cowRegister",
-		components: { mainContent: CowRegister },
+		name: "Registrar Rebanho",
+		path: "/animalRegister",
+		components: { mainContent: AnimalRegister },
 		meta: { requiresLogin: true, requiresFarm: true }
 	},
 	{
 		name: "Registrar Inseminação",
 		path: "/inseminationRegister",
 		components: { mainContent: InseminationRegister },
+		meta: { requiresLogin: true, requiresFarm: true }
+	},
+	{
+		name: "Registrar Sêmen",
+		path: "/semenRegister",
+		components: { mainContent: SemenRegister },
+		meta: { requiresLogin: true, requiresFarm: true }
+	},
+	{
+		name: "Registrar Parto",
+		path: "/childbirthRegister",
+		components: { mainContent: ChildbirthRegister },
+		meta: { requiresLogin: true, requiresFarm: true }
+	},
+	{
+		name: "Registrar Diagnóstico",
+		path: "/diagnosisRegister",
+		components: { mainContent: DiagnosisRegister },
 		meta: { requiresLogin: true, requiresFarm: true }
 	},
 	{	

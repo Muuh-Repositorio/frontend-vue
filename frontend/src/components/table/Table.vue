@@ -6,7 +6,7 @@
                 class="btn-disabled" 
                 id="btn-actions" 
                 type="submit"
-                @click="teste()"
+                @click="selectAction()"
                 v-show="selectBox && filterSelected"
             > 
                 {{ buttonText }}
@@ -14,7 +14,15 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-
+                <div class="gender-filter">
+                    <TableFilter
+                        :title="'Sexo'"
+                        :values="genders"
+                        v-model="gender"
+                        @change="selectGender()"
+                        v-show="genderFilter"
+                    />
+                </div>
                 <div class="filters">
                     <TableSelect
                         v-model="numberOfItens"
@@ -26,6 +34,7 @@
                         :values="filterValues"
                         v-model="filterSelected"
                         @change="selectFilter()"
+                        v-show="gender === 'F' || !genderFilter"
                     />
                 </div>
 

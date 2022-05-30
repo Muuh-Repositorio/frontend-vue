@@ -4,7 +4,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
 	user: null,
-	farm: null
+	farm: null,
+	data: []
   },
   mutations: {
 	SET_USER(state, user): void {
@@ -17,6 +18,9 @@ export default createStore({
 	},
 	SET_FARM(state, idt_farm): void {
 		state.farm = idt_farm
+	},
+	SET_DATA(state, data): void {
+		state.data = data
 	}
   },
   actions: {
@@ -25,6 +29,9 @@ export default createStore({
 	},
 	setFarm({commit}, idt_farm): void {
 		commit('SET_FARM', idt_farm)
+	},
+	setData({commit}, data): void {
+		commit('SET_DATA', data)
 	}
   },
   getters: {
@@ -33,6 +40,9 @@ export default createStore({
 	},
 	getFarm(state) {
 		return state.farm
+	},
+	getData(state) {
+		return state.data
 	}
   },
   modules: {

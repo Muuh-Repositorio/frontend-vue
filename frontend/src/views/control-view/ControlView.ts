@@ -1,8 +1,10 @@
+import { success } from "@/config/toasted";
 import { baseApiUrl, showError } from "@/global";
 import store from "@/store";
 import axios from "axios";
 import { Options, Vue } from "vue-class-component";
 import { PageTitle, Card, Table } from '../../components'
+import { AbleFor, paths } from './Paths.enum'
 
 @Options({
     name: "ControlView",
@@ -71,6 +73,32 @@ export default class ControlView extends Vue {
         } else {
             this.cows = []
         }
+    }
+
+    async selectAction(data: any) {
+        console.log(data.action)
+        if (data.action !== 'Drying') {
+            const case_: AbleFor = data.action
+            const path = paths.getPaths(case_)
+            if (data.items.length) {
+                store.dispatch('setData', data.items)
+                this.$router.push({ path: path })
+            }
+        } else {
+            await this.dryCow(data.items)
+        }
+    }
+
+    async dryCow(cows: any[]) {
+        for (const cow of cows) {
+            const url = `${ baseApiUrl }/cow/${ cow.idt_cow }`
+            await axios.put(url, { situation: 5 })
+                .then(() => {
+                    success()
+                })
+                .catch(showError)
+        }
+        location.reload()
     }
 
     mounted() {

@@ -5,30 +5,36 @@
         />
         <div class="row">
             <Card 
-                :title="'Total de Vacas'"
+                :title="'Rebanho'"
                 :value="totalCows"
+                :width="'3'"
             />
             <Card 
                 :title="'Vacas Inseminadas'"
                 :value="inseminatedCows"
+                :width="'3'"
             />
             <Card 
-                :title="'Vacas Disponíveis'"
+                :title="'Aptas para Inseminação'"
                 :value="availableCows"
+                :width="'3'"
             />
             <Card 
                 :title="'Total de Partos'"
                 :value="allChildbirth"
+                :width="'3'"
             />
         </div>
         <Table 
             :title="'Visão Geral'"
-            :data="cows"
+            :data="dataFiltered"
             :fields="fields"
             :selectBox="false"
             :filterTitle="'Mostrar vacas'"
             :filterValues="filterValues"
             @filter="filterData"
+            :genderFilter="true"
+            @gender="filterGender"
         />
     </div>
 </template>

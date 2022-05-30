@@ -23,8 +23,20 @@ export default class Home extends Vue {
         });
     }
 
+    aboutAnimation(): void {
+        const titleLine: any = document.getElementById('title-line');
+        const height = window.innerHeight;
+        window.addEventListener('scroll' , ()=>{
+            const offset = parseFloat(window.pageYOffset.toFixed(2));
+            if(offset + 0.4 === height){
+                titleLine.style.display = 'block';
+            }
+        })
+    }
+
     mounted(): void {
         this.bossLogoAnimation()
         this.welcomeTextAnimation()
+        this.aboutAnimation()
     }
 }

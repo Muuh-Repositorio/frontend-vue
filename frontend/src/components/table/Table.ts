@@ -5,13 +5,14 @@ import { TablePagination, TableSelect, TableFilter } from './components'
 
 @Options({
     name: "Table",
-    props: ['data', 'fields', 'title', 'selectBox', 'filterTitle', 'filterValues'],
+    props: ['data', 'fields', 'title', 'selectBox', 'filterTitle', 'filterValues', 'genderFilter'],
     components: { TablePagination, TableSelect, TableFilter }
 })
 export default class Table extends Vue {
     props: any = toRefs(this.$props)
 
     filterSelected: any = null
+    gender: any = null
 
     dataFiltered: any = []
     numberOfItens: any = 0
@@ -21,6 +22,12 @@ export default class Table extends Vue {
 
     itemsSelected: any = []
     buttonText = ''
+
+    genders: any = [
+        { value: null, text: 'Tudo'},
+        { value: 'M', text: 'Macho'},
+        { value: 'F', text: 'Fêmea'},
+    ]
 
     dataFilter = (start: number, end: number) => computed(() => {
         return this.props.data.slice(start, end)
@@ -92,9 +99,12 @@ export default class Table extends Vue {
         }
     }
 
-    teste() {
-        // store.dispatch('setItems', this.itemsSelected)
-        // this.$router.push({ path: '/inseminationRegister'})
+    selectGender() {
+        this.$emit('gender', this.gender)
+    }
+
+    selectAction() {
+        this.$emit('action', { action: this.filterSelected, items: this.itemsSelected })
     }
 
     mounted() {

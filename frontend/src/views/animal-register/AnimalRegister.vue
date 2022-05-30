@@ -10,33 +10,39 @@
                        <Input
                         :type="'number'"
                         :label="'Insira o número de identificação'"
-                        v-model="cow.code"
+                        v-model="animal.code"
                         />
                         <Input
                             :type="'text'"
                             :label="'Insira o nome'"
-                            v-model="cow.name"
+                            v-model="animal.name"
                         />
                         <Input
                             :type="'date'"
                             :label="'Insira a data de nascimento'"
-                            v-model="cow.birth_date"
+                            v-model="animal.birth_date"
                         />
                         <Input
                             :type="'number'"
                             :label="'Insira o peso'"
-                            v-model="cow.weight"
+                            v-model="animal.weight"
                         />
                         <SelectBox
-                            :title="'Qual a raça da vaca?'"
+                            :title="'Sexo'"
+                            :options="genders"
+                            v-model="animal.gender"
+                            :id="'gender-animal'"
+                        />
+                        <SelectBox
+                            :title="'Raça'"
                             :options="options"
-                            v-model="cow.idt_type"
+                            v-model="animal.idt_type"
                             :id="'type-cow'"
                         />
                         <Button
-                            :value="'Cadastrar Vaca'"
+                            :value="'Cadastrar'"
                             @click="continue_()"
-                            v-show="cow.idt_situation === undefined"
+                            v-show="animal.idt_situation === undefined"
                         />
                    </div>
                    <div class="more-info" v-show="showMoreInfo">
@@ -53,6 +59,13 @@
                             v-show="alreadyGaveBirth === 'true'"
                         />
                         <SelectBox
+                            :title="'Sexo da Novilha'"
+                            :options="genders"
+                            v-model="childbirth_data.heifer_gender"
+                            v-show="alreadyGaveBirth === 'true'"
+                            :id="'gender-heifer'"
+                        />
+                        <SelectBox
                             :title="'Já está inseminada?'"
                             :options="trueOrFalse"
                             :id="'alreadyInseminated'"
@@ -64,11 +77,30 @@
                             v-model="insemination_data.insemination_date"
                             v-show="alreadyInseminated === 'true'"
                         />
+                        <SelectBox
+                            :title="'Tipo de inseminação'"
+                            :options="insemination_types"
+                            :id="'insemination_types'"
+                            v-model="insemination_type"
+                            v-show="alreadyInseminated === 'true'"
+                        />
+                        <Input
+                            :type="'number'"
+                            :label="'Insira o id do touro'"
+                            v-model="insemination_data.idt_bull"
+                            v-show="alreadyInseminated === 'true' && insemination_type === 'bull'"
+                        />
+                        <Input
+                            :type="'number'"
+                            :label="'Insira o id do sêmen'"
+                            v-model="insemination_data.idt_semen"
+                            v-show="alreadyInseminated === 'true' && insemination_type === 'semen'"
+                        />
                    </div>
                    <Button
-                        :value="'Cadastrar Vaca'"
+                        :value="'Cadastrar'"
                         @click="register()"
-                        v-show="showMoreInfo || cow.idt_situation !== undefined"
+                        v-show="showMoreInfo || animal.idt_situation !== undefined"
                     />
                     <Button
                         :value="'Editar Informações'"
@@ -84,5 +116,5 @@
     </div>
 </template>
 
-<script lang="ts" src="./CowRegister.ts"></script>
-<style lang="scss" scoped src="./CowRegister.scss" ></style>
+<script lang="ts" src="./AnimalRegister.ts"></script>
+<style lang="scss" scoped src="./AnimalRegister.scss" ></style>

@@ -7,18 +7,22 @@
             <Card
                 :title="'Aptas para Inseminar'"
                 :value="inseminations"
+                :width="'3'"
             />
             <Card
                 :title="'Aptas para Diagnosticar'"
                 :value="diagnoses"
+                :width="'3'"
             />
             <Card
                 :title="'Aptas para Secar'"
                 :value="dryings"
+                :width="'3'"
             />
             <Card
                 :title="'Aptas para Parir'"
                 :value="childBirths"
+                :width="'3'"
             />
         </div>
         <Table
@@ -29,6 +33,7 @@
             :filterTitle="'Vacas aptas para'"
             :filterValues="filterValues"
             @filter="selectCows"
+            @action="selectAction"
         />
     </div>
 </template>
