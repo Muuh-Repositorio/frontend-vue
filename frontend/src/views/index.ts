@@ -13,6 +13,7 @@ import SemenRegister from './semen-register/SemenRegister.vue'
 import ChildbirthRegister from './childbirth-register/ChildbirthRegister.vue'
 import DiagnosisRegister from './diagnosis-register/DiagnosisRegister.vue'
 import Profile from './profile/Profile.vue'
+import SemenStock from './semen-stock/SemenStock.vue'
 
 export { 
     Home, 
@@ -29,5 +30,6 @@ export {
     SemenRegister,
     ChildbirthRegister,
     DiagnosisRegister,
-    Profile
+    Profile,
+    SemenStock
 }

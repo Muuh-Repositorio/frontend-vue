@@ -55,6 +55,13 @@
                         </a>
                     </router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/stock/semen">
+                        <a class="nav-link">
+                            <span>Estoque - Sêmen</span>
+                        </a>
+                    </router-link>
+                </li>
             </div>
 
             <hr class="sidebar-divider d-none d-md-block">

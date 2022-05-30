@@ -14,7 +14,8 @@ import {
 	SemenRegister,
 	ChildbirthRegister,
 	DiagnosisRegister,
-	Profile
+	Profile,
+	SemenStock
 } from '../views'
 import { validations } from './Validations'
 
@@ -60,6 +61,11 @@ const routes: Array<RouteRecordRaw> = [
 				name: "Perfil",
 				path: "/profile",
 				components: { dashboardContent: Profile }
+			},
+			{
+				name: "Estoque - Sêmen",
+				path: "/stock/semen",
+				components: { dashboardContent: SemenStock }
 			}
 		]
 	},
